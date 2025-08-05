@@ -48,13 +48,11 @@ class ConfigResource extends Resource
                                     ->label('Job Title (English)')
                                     ->maxLength(255)
                                     ->default(null),
-                                Forms\Components\TextInput::make('summary_ar')
+                                Forms\Components\RichEditor::make('summary_ar')
                                     ->label('Summary (Arabic)')
-                                    ->maxLength(255)
                                     ->default(null),
-                                Forms\Components\TextInput::make('summary_en')
+                                Forms\Components\RichEditor::make('summary_en')
                                     ->label('Summary (English)')
-                                    ->maxLength(255)
                                     ->default(null),
                             ]),
                         Forms\Components\RichEditor::make('about_me_ar')

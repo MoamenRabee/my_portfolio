@@ -10,7 +10,7 @@
                 <h1 class="text-5xl font-bold mb-6">
                     {{ __('message.contact_me') }}
                 </h1>
-                <p class="text-xl text-purple-100 max-w-2xl mx-auto">
+                <p class="text-xl text-blue-100 max-w-2xl mx-auto">
                     {{ __('message.contact_page_desc') }}
                 </p>
             </div>
@@ -41,7 +41,7 @@
                                 <div>
                                     <h3 class="font-semibold text-gray-800 dark:text-gray-200">{{ __('message.email') }}</h3>
                                     <a href="mailto:{{ $config->email }}"
-                                        class="text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300 transition-colors">
+                                        class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-purple-300 transition-colors">
                                         {{ $config->email }}
                                     </a>
                                 </div>
@@ -57,7 +57,7 @@
                                 <div>
                                     <h3 class="font-semibold text-gray-800 dark:text-gray-200">{{ __('message.phone') }}</h3>
                                     <a href="tel:{{ $config->phone }}"
-                                        class="text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300 transition-colors">
+                                        class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-purple-300 transition-colors">
                                         {{ $config->phone }}
                                     </a>
                                 </div>
@@ -73,7 +73,7 @@
                                 <div>
                                     <h3 class="font-semibold text-gray-800 dark:text-gray-200">{{ __('message.whatsapp') }}</h3>
                                     <a href="{{ $config->whatsapp }}" target="_blank"
-                                        class="text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300 transition-colors">
+                                        class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-purple-300 transition-colors">
                                         {{ __('message.send_whatsapp') }}
                                     </a>
                                 </div>
@@ -83,8 +83,8 @@
                         @if($config->address)
                             <div class="flex items-center group">
                                 <div
-                                    class="w-12 h-12 bg-purple-100 dark:bg-purple-900/50 rounded-lg flex items-center justify-center {{ app()->getLocale() == 'ar' ? 'ml-4' : 'mr-4' }} group-hover:bg-purple-200 dark:group-hover:bg-purple-900/70 transition-colors">
-                                    <i class="fas fa-map-marker-alt text-purple-600 dark:text-purple-400"></i>
+                                    class="w-12 h-12 bg-blue-100 dark:bg-purple-900/50 rounded-lg flex items-center justify-center {{ app()->getLocale() == 'ar' ? 'ml-4' : 'mr-4' }} group-hover:bg-purple-200 dark:group-hover:bg-purple-900/70 transition-colors">
+                                    <i class="fas fa-map-marker-alt text-blue-600 dark:text-blue-400"></i>
                                 </div>
                                 <div>
                                     <h3 class="font-semibold text-gray-800 dark:text-gray-200">{{ __('message.location') }}</h3>
@@ -154,7 +154,7 @@
                                         {{ __('message.your_name') }} *
                                     </label>
                                     <input type="text" id="name" name="name" required
-                                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                                         placeholder="{{ __('message.name_placeholder') }}">
                                 </div>
 
@@ -164,7 +164,7 @@
                                         {{ __('message.your_email') }} *
                                     </label>
                                     <input type="email" id="email" name="email" required
-                                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                                         placeholder="{{ __('message.email_placeholder') }}">
                                 </div>
                             </div>
@@ -175,7 +175,7 @@
                                     {{ __('message.subject') }} *
                                 </label>
                                 <input type="text" id="subject" name="subject" required
-                                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                                     placeholder="{{ __('message.subject_placeholder') }}">
                             </div>
 
@@ -185,13 +185,13 @@
                                     {{ __('message.your_message') }} *
                                 </label>
                                 <textarea id="message" name="message" rows="5" required
-                                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all resize-vertical"
+                                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-vertical"
                                     placeholder="{{ __('message.message_placeholder') }}"></textarea>
                             </div>
 
                             <div>
                                 <button type="submit"
-                                    class="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105 shadow-lg hover:shadow-xl">
+                                    class="w-full bg-gradient-to-r from-blue-600 to-blue-600 hover:from-blue-700 hover:to-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105 shadow-lg hover:shadow-xl">
                                     {{ __('message.send_message') }}
                                     <i class="fas fa-paper-plane {{ app()->getLocale() == 'ar' ? 'mr-2' : 'ml-2' }}"></i>
                                 </button>
@@ -234,7 +234,7 @@
                             {{ __('message.email_desc') }}
                         </p>
                         <a href="mailto:{{ $config->email }}"
-                            class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 rounded-full font-semibold transition-all inline-block">
+                            class="bg-gradient-to-r from-blue-600 to-blue-600 hover:from-blue-700 hover:to-blue-700 text-white px-6 py-2 rounded-full font-semibold transition-all inline-block">
                             {{ __('message.send_email') }}
                         </a>
                     </div>
@@ -264,8 +264,8 @@
                     <div class="text-center card-hover bg-purple-50 dark:bg-purple-900/20 rounded-xl p-8" data-aos="fade-up"
                         data-aos-delay="300">
                         <div
-                            class="w-16 h-16 bg-purple-100 dark:bg-purple-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fab fa-linkedin text-2xl text-purple-600 dark:text-purple-400"></i>
+                            class="w-16 h-16 bg-blue-100 dark:bg-purple-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fab fa-linkedin text-2xl text-blue-600 dark:text-blue-400"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">
                             {{ __('message.linkedin') }}
@@ -274,7 +274,7 @@
                             {{ __('message.linkedin_desc') }}
                         </p>
                         <a href="{{ $config->linkedin }}" target="_blank"
-                            class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-2 rounded-full font-semibold transition-all inline-block">
+                            class="bg-gradient-to-r from-blue-600 to-pink-600 hover:from-blue-700 hover:to-pink-700 text-white px-6 py-2 rounded-full font-semibold transition-all inline-block">
                             {{ __('message.connect') }}
                         </a>
                     </div>
@@ -304,13 +304,13 @@
                 <div class="flex flex-wrap justify-center gap-4">
                     @if($config->cv)
                         <a href="{{ asset('storage/' . $config->cv) }}" target="_blank"
-                            class="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-6 py-3 rounded-full font-semibold transition-all transform hover:scale-105 shadow-lg">
+                            class="bg-gradient-to-r from-blue-600 to-blue-600 hover:from-blue-700 hover:to-blue-700 text-white px-6 py-3 rounded-full font-semibold transition-all transform hover:scale-105 shadow-lg">
                             <i class="fas fa-download {{ app()->getLocale() == 'ar' ? 'ml-2' : 'mr-2' }}"></i>
                             {{ __('message.download_resume') }}
                         </a>
                     @endif
                     <a href="{{ route('portfolio.projects') }}"
-                        class="border-2 border-purple-600 dark:border-purple-400 text-purple-600 dark:text-purple-400 px-6 py-3 rounded-full font-semibold hover:bg-purple-600 hover:text-white dark:hover:bg-purple-600 dark:hover:text-white transition-all transform hover:scale-105">
+                        class="border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 px-6 py-3 rounded-full font-semibold hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white transition-all transform hover:scale-105">
                         {{ __('message.view_my_work') }}
                     </a>
                 </div>

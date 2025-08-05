@@ -12,29 +12,7 @@ class PortfolioController extends Controller
 {
     private function getConfig()
     {
-        $config = Config::first();
-
-        // إذا لم توجد بيانات في configs، ننشئ default config
-        if (!$config) {
-            $config = new Config([
-                'name_ar' => 'أحمد محمد',
-                'name_en' => 'Ahmed Mohamed',
-                'job_title_ar' => 'مطور ويب',
-                'job_title_en' => 'Web Developer',
-                'summary_ar' => 'مطور ويب محترف مع خبرة في تطوير التطبيقات الحديثة',
-                'summary_en' => 'Professional web developer with experience in modern application development',
-                'about_me_ar' => 'مرحباً، أنا مطور ويب محترف أحب إنشاء تطبيقات ويب مبتكرة وحلول تقنية متقدمة.',
-                'about_me_en' => 'Hello, I am a professional web developer who loves creating innovative web applications and advanced technical solutions.',
-                'email' => 'developer@example.com',
-                'phone' => '+1234567890',
-                'address' => 'مدينة، دولة',
-                'site_name' => 'Portfolio',
-                'site_description' => 'My Professional Portfolio',
-                'copyright' => '© ' . date('Y') . ' All rights reserved.',
-            ]);
-        }
-
-        return $config;
+        return Config::first();
     }
 
     public function changeLanguage($locale)

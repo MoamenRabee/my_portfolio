@@ -14,16 +14,17 @@
                     <h2 class="text-2xl lg:text-3xl mb-6 text-purple-200">
                         {{ app()->getLocale() == 'ar' ? ($config->job_title_ar ?? '') : ($config->job_title_en ?? '') }}
                     </h2>
-                    <p class="text-xl mb-8 text-purple-100 leading-relaxed">
-                        {{ app()->getLocale() == 'ar' ? ($config->summary_ar ?? '') : ($config->summary_en ?? '') }}
+                    <p class="text-xl mb-12 text-blue-100 leading-loose">
+                        {!! app()->getLocale() == 'ar' ? ($config->summary_ar ?? '') : ($config->summary_en ?? '') !!}
                     </p>
+                    &nbsp;
                     <div class="flex flex-wrap gap-4">
                         <a href="{{ route('portfolio.projects') }}"
                             class="btn-primary px-8 py-3 rounded-full font-semibold text-white hover:text-white transition-all">
                             {{ __('message.view_my_work') }}
                         </a>
                         <a href="{{ route('portfolio.contact') }}"
-                            class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-all">
+                            class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-all">
                             {{ __('message.contact_me') }}
                         </a>
                     </div>
@@ -35,7 +36,7 @@
                             <img src="{{ asset('storage/' . $config->profile_image) }}"
                                 alt="{{ $config->name_ar ?? $config->name_en }}"
                                 class="w-80 h-80 rounded-full object-cover shadow-2xl border-8 border-white/20">
-                            <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-purple-400/20 to-pink-400/20">
+                            <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-400/20 to-pink-400/20">
                             </div>
                         </div>
                     @else
@@ -54,8 +55,8 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="text-center" data-aos="fade-up" data-aos-delay="100">
                     <div
-                        class="w-16 h-16 bg-purple-100 dark:bg-purple-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-briefcase text-2xl text-purple-600 dark:text-purple-400"></i>
+                        class="w-16 h-16 bg-blue-100 dark:bg-purple-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-briefcase text-2xl text-blue-600 dark:text-blue-400"></i>
                     </div>
                     <h3 class="text-3xl font-bold text-gray-800 dark:text-white mb-2">{{ $experiences->count() }}+</h3>
                     <p class="text-gray-600 dark:text-gray-300">{{ __('message.years_experience') }}</p>
@@ -103,7 +104,7 @@
                                 alt="{{ app()->getLocale() == 'ar' ? $project->title_ar : $project->title_en }}"
                                 class="w-full h-48 object-cover">
                         @else
-                            <div class="w-full h-48 bg-gradient-to-br from-purple-400 to-blue-500 flex items-center justify-center">
+                            <div class="w-full h-48 bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center">
                                 <i class="fas fa-project-diagram text-4xl text-white"></i>
                             </div>
                         @endif
@@ -113,7 +114,7 @@
                                 {{ app()->getLocale() == 'ar' ? $project->title_ar : $project->title_en }}
                             </h3>
                             <p class="text-gray-600 dark:text-gray-300 mb-4">
-                                {{ Str::limit(app()->getLocale() == 'ar' ? $project->description_ar : $project->description_en, 100) }}
+                                {!! Str::limit(app()->getLocale() == 'ar' ? $project->description_ar : $project->description_en, 100) !!}
                             </p>
 
                             <div class="flex flex-wrap gap-2 mb-4">
@@ -126,7 +127,7 @@
 
                             <div class="flex justify-between items-center">
                                 <a href="{{ route('portfolio.project', $project->id) }}"
-                                    class="text-purple-600 dark:text-purple-300 hover:text-purple-800 dark:hover:text-purple-100 font-semibold transition-colors">
+                                    class="text-blue-600 dark:text-purple-300 hover:text-blue-800 dark:hover:text-blue-100 font-semibold transition-colors">
                                     {{ __('message.view_details') }}
                                     <i
                                         class="fas fa-arrow-{{ app()->getLocale() == 'ar' ? 'left' : 'right' }} {{ app()->getLocale() == 'ar' ? 'mr-1' : 'ml-1' }}"></i>
@@ -183,7 +184,7 @@
 
             <div class="text-center mt-8" data-aos="fade-up" data-aos-delay="300">
                 <a href="{{ route('portfolio.skills') }}"
-                    class="text-purple-600 dark:text-purple-300 hover:text-purple-800 dark:hover:text-purple-100 font-semibold transition-colors">
+                    class="text-blue-600 dark:text-purple-300 hover:text-blue-800 dark:hover:text-blue-100 font-semibold transition-colors">
                     {{ __('message.view_all_skills') }}
                     <i
                         class="fas fa-arrow-{{ app()->getLocale() == 'ar' ? 'left' : 'right' }} {{ app()->getLocale() == 'ar' ? 'mr-1' : 'ml-1' }}"></i>
@@ -217,8 +218,8 @@
                                         class="w-12 h-12 rounded-lg object-cover">
                                 @else
                                     <div
-                                        class="w-12 h-12 bg-purple-100 dark:bg-purple-900/50 rounded-lg flex items-center justify-center">
-                                        <i class="fas fa-building text-purple-600 dark:text-purple-400"></i>
+                                        class="w-12 h-12 bg-blue-100 dark:bg-purple-900/50 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-building text-blue-600 dark:text-blue-400"></i>
                                     </div>
                                 @endif
 
@@ -226,14 +227,14 @@
                                     <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-1">
                                         {{ app()->getLocale() == 'ar' ? $experience->title_ar : $experience->title_en }}
                                     </h3>
-                                    <p class="text-purple-600 dark:text-purple-300 font-semibold mb-2">
+                                    <p class="text-blue-600 dark:text-purple-300 font-semibold mb-2">
                                         {{ app()->getLocale() == 'ar' ? $experience->company_name_ar : $experience->company_name_en }}
                                     </p>
                                     <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">
                                         {{ $experience->start_date }} - {{ $experience->end_date ?? __('message.present') }}
                                     </p>
                                     <p class="text-gray-700 dark:text-gray-300">
-                                        {{ Str::limit(app()->getLocale() == 'ar' ? $experience->description_ar : $experience->description_en, 150) }}
+                                        {!! Str::limit(app()->getLocale() == 'ar' ? $experience->description_ar : $experience->description_en, 150) !!}
                                     </p>
                                 </div>
                             </div>
@@ -257,11 +258,11 @@
             <h2 class="text-4xl font-bold text-white mb-6">
                 {{ __('message.have_project') }}
             </h2>
-            <p class="text-xl text-purple-100 mb-8 leading-relaxed">
+            <p class="text-xl text-blue-100 mb-8 leading-relaxed">
                 {{ __('message.lets_collaborate') }}
             </p>
             <a href="{{ route('portfolio.contact') }}"
-                class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all inline-block">
+                class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all inline-block">
                 {{ __('message.start_project') }}
             </a>
         </div>

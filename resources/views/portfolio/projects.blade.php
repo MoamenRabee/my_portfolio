@@ -10,7 +10,7 @@
                 <h1 class="text-5xl font-bold mb-6">
                     {{ __('message.projects') }}
                 </h1>
-                <p class="text-xl text-purple-100 max-w-2xl mx-auto">
+                <p class="text-xl text-blue-100 max-w-2xl mx-auto">
                     {{ __('message.projects_page_desc') }}
                 </p>
             </div>
@@ -30,7 +30,7 @@
                                     alt="{{ app()->getLocale() == 'ar' ? $project->title_ar : $project->title_en }}"
                                     class="w-full h-48 object-cover">
                             @else
-                                <div class="w-full h-48 bg-gradient-to-br from-purple-400 to-blue-500 flex items-center justify-center">
+                                <div class="w-full h-48 bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center">
                                     <i class="fas fa-project-diagram text-4xl text-white"></i>
                                 </div>
                             @endif
@@ -42,14 +42,14 @@
                                     </h3>
                                     @if($project->experience)
                                         <span
-                                            class="text-xs bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 px-2 py-1 rounded-full">
+                                            class="text-xs bg-blue-100 dark:bg-purple-900/50 text-blue-600 dark:text-blue-400 px-2 py-1 rounded-full">
                                             {{ app()->getLocale() == 'ar' ? $project->experience->company_name_ar : $project->experience->company_name_en }}
                                         </span>
                                     @endif
                                 </div>
 
                                 <p class="text-gray-600 dark:text-gray-300 mb-4">
-                                    {{ Str::limit(app()->getLocale() == 'ar' ? $project->description_ar : $project->description_en, 120) }}
+                                    {!! Str::limit(app()->getLocale() == 'ar' ? $project->description_ar : $project->description_en, 120) !!}
                                 </p>
 
                                 <!-- Skills -->
@@ -70,7 +70,7 @@
                                 <!-- Action Buttons -->
                                 <div class="flex justify-between items-center">
                                     <a href="{{ route('portfolio.project', $project->id) }}"
-                                        class="text-purple-600 dark:text-purple-300 hover:text-purple-800 dark:hover:text-purple-100 font-semibold transition-colors">
+                                        class="text-blue-600 dark:text-purple-300 hover:text-blue-800 dark:hover:text-blue-100 font-semibold transition-colors">
                                         {{ __('message.view_details') }}
                                         <i
                                             class="fas fa-arrow-{{ app()->getLocale() == 'ar' ? 'left' : 'right' }} {{ app()->getLocale() == 'ar' ? 'mr-1' : 'ml-1' }}"></i>
@@ -165,23 +165,23 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             @foreach($projectGroup as $project)
                                 <div
-                                    class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-600 hover:border-purple-300 dark:hover:border-purple-500 transition-colors">
+                                    class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-600 hover:border-purple-300 dark:hover:border-blue-500 transition-colors">
                                     <h4 class="font-semibold text-gray-800 dark:text-white mb-2">
                                         {{ app()->getLocale() == 'ar' ? $project->title_ar : $project->title_en }}
                                     </h4>
                                     <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">
-                                        {{ Str::limit(app()->getLocale() == 'ar' ? $project->description_ar : $project->description_en, 80) }}
+                                        {!! Str::limit(app()->getLocale() == 'ar' ? $project->description_ar : $project->description_en, 80) !!}
                                     </p>
                                     <div class="flex flex-wrap gap-1 mb-3">
                                         @foreach($project->skills->take(3) as $skill)
                                             <span
-                                                class="text-xs bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 px-2 py-1 rounded">
+                                                class="text-xs bg-blue-100 dark:bg-purple-900/50 text-blue-600 dark:text-blue-400 px-2 py-1 rounded">
                                                 {{ app()->getLocale() == 'ar' ? $skill->name_ar : $skill->name_en }}
                                             </span>
                                         @endforeach
                                     </div>
                                     <a href="{{ route('portfolio.project', $project->id) }}"
-                                        class="text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300 text-sm font-medium transition-colors">
+                                        class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-purple-300 text-sm font-medium transition-colors">
                                         {{ __('message.view_details') }}
                                         <i
                                             class="fas fa-arrow-{{ app()->getLocale() == 'ar' ? 'left' : 'right' }} {{ app()->getLocale() == 'ar' ? 'mr-1' : 'ml-1' }}"></i>
@@ -201,11 +201,11 @@
             <h2 class="text-4xl font-bold text-white mb-6">
                 {{ __('message.like_what_you_see') }}
             </h2>
-            <p class="text-xl text-purple-100 mb-8">
+            <p class="text-xl text-blue-100 mb-8">
                 {{ __('message.talk_next_project') }}
             </p>
             <a href="{{ route('portfolio.contact') }}"
-                class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all inline-block transform hover:scale-105 shadow-lg">
+                class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all inline-block transform hover:scale-105 shadow-lg">
                 {{ __('message.get_in_touch') }}
             </a>
         </div>

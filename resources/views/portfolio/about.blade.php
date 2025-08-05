@@ -14,7 +14,7 @@
                     <h2 class="text-2xl mb-6 text-purple-200">
                         {{ app()->getLocale() == 'ar' ? ($config->name_ar ?? '') : ($config->name_en ?? '') }}
                     </h2>
-                    <p class="text-xl text-purple-100 leading-relaxed">
+                    <p class="text-xl text-blue-100 leading-relaxed">
                         {{ app()->getLocale() == 'ar' ? ($config->job_title_ar ?? '') : ($config->job_title_en ?? '') }}
                     </p>
                 </div>
@@ -47,7 +47,7 @@
                     </h2>
 
                     <div class="prose prose-lg max-w-none text-gray-700 dark:text-gray-300 leading-relaxed">
-                        {!! nl2br(e(app()->getLocale() == 'ar' ? $config->about_me_ar : $config->about_me_en)) !!}
+                        {!! nl2br(app()->getLocale() == 'ar' ? $config->about_me_ar : $config->about_me_en) !!}
                     </div>
                 @else
                     <div class="text-center py-12">
@@ -91,8 +91,8 @@
 
                 <div class="text-center" data-aos="fade-up" data-aos-delay="200">
                     <div
-                        class="w-16 h-16 bg-purple-100 dark:bg-purple-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-project-diagram text-2xl text-purple-600 dark:text-purple-400"></i>
+                        class="w-16 h-16 bg-blue-100 dark:bg-purple-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-project-diagram text-2xl text-blue-600 dark:text-blue-400"></i>
                     </div>
                     @php
                         $totalProjects = \App\Models\Project::count();
@@ -148,7 +148,7 @@
                                 <div>
                                     <h3 class="font-semibold text-gray-800 dark:text-gray-200">{{ __('message.email') }}</h3>
                                     <a href="mailto:{{ $config->email }}"
-                                        class="text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300 transition-colors">
+                                        class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-purple-300 transition-colors">
                                         {{ $config->email }}
                                     </a>
                                 </div>
@@ -164,7 +164,7 @@
                                 <div>
                                     <h3 class="font-semibold text-gray-800 dark:text-gray-200">{{ __('message.phone') }}</h3>
                                     <a href="tel:{{ $config->phone }}"
-                                        class="text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300 transition-colors">
+                                        class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-purple-300 transition-colors">
                                         {{ $config->phone }}
                                     </a>
                                 </div>
@@ -174,8 +174,8 @@
                         @if($config->address)
                             <div class="flex items-center">
                                 <div
-                                    class="w-12 h-12 bg-purple-100 dark:bg-purple-900/50 rounded-lg flex items-center justify-center {{ app()->getLocale() == 'ar' ? 'ml-4' : 'mr-4' }}">
-                                    <i class="fas fa-map-marker-alt text-purple-600 dark:text-purple-400"></i>
+                                    class="w-12 h-12 bg-blue-100 dark:bg-purple-900/50 rounded-lg flex items-center justify-center {{ app()->getLocale() == 'ar' ? 'ml-4' : 'mr-4' }}">
+                                    <i class="fas fa-map-marker-alt text-blue-600 dark:text-blue-400"></i>
                                 </div>
                                 <div>
                                     <h3 class="font-semibold text-gray-800 dark:text-gray-200">{{ __('message.location') }}</h3>
@@ -233,8 +233,8 @@
                         @if($config->cv)
                             <div class="text-center mb-6">
                                 <div
-                                    class="w-16 h-16 bg-purple-100 dark:bg-purple-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <i class="fas fa-file-pdf text-2xl text-purple-600 dark:text-purple-400"></i>
+                                    class="w-16 h-16 bg-blue-100 dark:bg-purple-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-file-pdf text-2xl text-blue-600 dark:text-blue-400"></i>
                                 </div>
                                 <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">
                                     {{ __('message.download_resume') }}
@@ -243,7 +243,7 @@
                                     {{ __('message.get_resume_copy') }}
                                 </p>
                                 <a href="{{ asset('storage/' . $config->cv) }}" target="_blank"
-                                    class="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-6 py-3 rounded-full font-semibold transition-all inline-block transform hover:scale-105 shadow-lg">
+                                    class="bg-gradient-to-r from-blue-600 to-blue-600 hover:from-blue-700 hover:to-blue-700 text-white px-6 py-3 rounded-full font-semibold transition-all inline-block transform hover:scale-105 shadow-lg">
                                     <i class="fas fa-download {{ app()->getLocale() == 'ar' ? 'ml-2' : 'mr-2' }}"></i>
                                     {{ __('message.download_cv') }}
                                 </a>
@@ -260,19 +260,19 @@
                                     <span
                                         class="text-gray-700 dark:text-gray-300">{{ __('message.view_my_projects') }}</span>
                                     <i
-                                        class="fas fa-arrow-{{ app()->getLocale() == 'ar' ? 'left' : 'right' }} text-purple-600 dark:text-purple-400"></i>
+                                        class="fas fa-arrow-{{ app()->getLocale() == 'ar' ? 'left' : 'right' }} text-blue-600 dark:text-blue-400"></i>
                                 </a>
                                 <a href="{{ route('portfolio.experiences') }}"
                                     class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
                                     <span class="text-gray-700 dark:text-gray-300">{{ __('message.my_experience') }}</span>
                                     <i
-                                        class="fas fa-arrow-{{ app()->getLocale() == 'ar' ? 'left' : 'right' }} text-purple-600 dark:text-purple-400"></i>
+                                        class="fas fa-arrow-{{ app()->getLocale() == 'ar' ? 'left' : 'right' }} text-blue-600 dark:text-blue-400"></i>
                                 </a>
                                 <a href="{{ route('portfolio.skills') }}"
                                     class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
                                     <span class="text-gray-700 dark:text-gray-300">{{ __('message.my_skills') }}</span>
                                     <i
-                                        class="fas fa-arrow-{{ app()->getLocale() == 'ar' ? 'left' : 'right' }} text-purple-600 dark:text-purple-400"></i>
+                                        class="fas fa-arrow-{{ app()->getLocale() == 'ar' ? 'left' : 'right' }} text-blue-600 dark:text-blue-400"></i>
                                 </a>
                             </div>
                         </div>
@@ -288,11 +288,11 @@
             <h2 class="text-4xl font-bold text-white mb-6">
                 {{ __('message.ready_collaborate') }}
             </h2>
-            <p class="text-xl text-purple-100 mb-8">
+            <p class="text-xl text-blue-100 mb-8">
                 {{ __('message.collaborate_desc') }}
             </p>
             <a href="{{ route('portfolio.contact') }}"
-                class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all inline-block transform hover:scale-105 shadow-lg">
+                class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all inline-block transform hover:scale-105 shadow-lg">
                 {{ __('message.contact_me_now') }}
             </a>
         </div>

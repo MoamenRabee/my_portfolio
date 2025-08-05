@@ -10,7 +10,7 @@
             <h1 class="text-5xl font-bold mb-6">
                 {{ __('message.my_experience') }}
             </h1>
-            <p class="text-xl text-purple-100 max-w-2xl mx-auto">
+            <p class="text-xl text-blue-100 max-w-2xl mx-auto">
                 {{ __('message.experience_page_desc') }}
             </p>
         </div>
@@ -23,12 +23,12 @@
         @if($experiences->count() > 0)
             <div class="relative">
                 <!-- Timeline Line -->
-                <div class="absolute left-8 md:left-1/2 transform md:-translate-x-px h-full w-0.5 bg-purple-200 dark:bg-purple-800"></div>
+                <div class="absolute left-8 md:left-1/2 transform md:-translate-x-px h-full w-0.5 bg-purple-200 dark:bg-blue-800"></div>
                 
                 @foreach($experiences as $experience)
                     <div class="relative flex items-center mb-12 {{ $loop->index % 2 == 0 ? 'md:flex-row-reverse' : '' }}" data-aos="fade-up" data-aos-delay="{{ $loop->index * 200 }}">
                         <!-- Timeline Dot -->
-                        <div class="absolute {{ app()->getLocale() == 'ar' ? 'right-8 md:right-1/2' : 'left-8 md:left-1/2' }} transform {{ app()->getLocale() == 'ar' ? 'md:translate-x-1/2' : 'md:-translate-x-1/2' }} w-4 h-4 bg-purple-600 dark:bg-purple-500 rounded-full border-4 border-white dark:border-gray-900 shadow-lg z-10"></div>
+                        <div class="absolute {{ app()->getLocale() == 'ar' ? 'right-8 md:right-1/2' : 'left-8 md:left-1/2' }} transform {{ app()->getLocale() == 'ar' ? 'md:translate-x-1/2' : 'md:-translate-x-1/2' }} w-4 h-4 bg-blue-600 dark:bg-blue-500 rounded-full border-4 border-white dark:border-gray-900 shadow-lg z-10"></div>
                         
                         <!-- Content Card -->
                         <div class="{{ app()->getLocale() == 'ar' ? 'mr-20 md:mr-0' : 'ml-20 md:ml-0' }} md:w-5/12 {{ $loop->index % 2 == 0 ? (app()->getLocale() == 'ar' ? 'md:ml-auto md:pr-8' : 'md:mr-auto md:pl-8') : (app()->getLocale() == 'ar' ? 'md:mr-auto md:pl-8' : 'md:ml-auto md:pr-8') }}">
@@ -40,8 +40,8 @@
                                              alt="{{ app()->getLocale() == 'ar' ? $experience->company_name_ar : $experience->company_name_en }}" 
                                              class="w-12 h-12 rounded-lg object-cover {{ app()->getLocale() == 'ar' ? 'ml-4' : 'mr-4' }}">
                                     @else
-                                        <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/50 rounded-lg flex items-center justify-center {{ app()->getLocale() == 'ar' ? 'ml-4' : 'mr-4' }}">
-                                            <i class="fas fa-building text-purple-600 dark:text-purple-400"></i>
+                                        <div class="w-12 h-12 bg-blue-100 dark:bg-purple-900/50 rounded-lg flex items-center justify-center {{ app()->getLocale() == 'ar' ? 'ml-4' : 'mr-4' }}">
+                                            <i class="fas fa-building text-blue-600 dark:text-blue-400"></i>
                                         </div>
                                     @endif
                                     
@@ -49,7 +49,7 @@
                                         <h3 class="text-xl font-bold text-gray-800 dark:text-white">
                                             {{ app()->getLocale() == 'ar' ? $experience->title_ar : $experience->title_en }}
                                         </h3>
-                                        <p class="text-purple-600 dark:text-purple-400 font-semibold">
+                                        <p class="text-blue-600 dark:text-blue-400 font-semibold">
                                             {{ app()->getLocale() == 'ar' ? $experience->company_name_ar : $experience->company_name_en }}
                                         </p>
                                     </div>
@@ -71,7 +71,7 @@
                                 
                                 <!-- Description -->
                                 <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                                    {{ app()->getLocale() == 'ar' ? $experience->description_ar : $experience->description_en }}
+                                    {!! app()->getLocale() == 'ar' ? $experience->description_ar : $experience->description_en !!}
                                 </p>
                                 
                                 <!-- Related Projects -->
@@ -86,7 +86,7 @@
                                         <div class="flex flex-wrap gap-2">
                                             @foreach($experienceProjects->take(3) as $project)
                                                 <a href="{{ route('portfolio.project', $project->id) }}" 
-                                                   class="text-sm bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 px-3 py-1 rounded-full hover:bg-purple-200 dark:hover:bg-purple-900/70 transition-colors">
+                                                   class="text-sm bg-blue-100 dark:bg-purple-900/50 text-blue-600 dark:text-blue-400 px-3 py-1 rounded-full hover:bg-purple-200 dark:hover:bg-purple-900/70 transition-colors">
                                                     {{ app()->getLocale() == 'ar' ? $project->title_ar : $project->title_en }}
                                                 </a>
                                             @endforeach
@@ -103,7 +103,7 @@
                         
                         <!-- Date Badge (Mobile) -->
                         <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 {{ $loop->index % 2 == 0 ? '-translate-y-12' : 'translate-y-12' }}">
-                            <span class="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
                                 {{ \Carbon\Carbon::parse($experience->start_date)->format('Y') }}
                             </span>
                         </div>
@@ -136,10 +136,10 @@
                     {{ __('message.about_professional_journey') }}
                 </h2>
                 <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-                    {{ app()->getLocale() == 'ar' ? $config->about_me_ar : $config->about_me_en }}
+                    {!! app()->getLocale() == 'ar' ? $config->about_me_ar : $config->about_me_en !!}
                 </p>
                 <a href="{{ route('portfolio.about') }}" 
-                   class="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-6 py-3 rounded-full font-semibold transition-all inline-block transform hover:scale-105 shadow-lg">
+                   class="bg-gradient-to-r from-blue-600 to-blue-600 hover:from-blue-700 hover:to-blue-700 text-white px-6 py-3 rounded-full font-semibold transition-all inline-block transform hover:scale-105 shadow-lg">
                     {{ __('message.learn_more_about_me') }}
                 </a>
             </div>
@@ -190,8 +190,8 @@
             </div>
             
             <div class="text-center" data-aos="fade-up" data-aos-delay="300">
-                <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-project-diagram text-2xl text-purple-600 dark:text-purple-400"></i>
+                <div class="w-16 h-16 bg-blue-100 dark:bg-purple-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-project-diagram text-2xl text-blue-600 dark:text-blue-400"></i>
                 </div>
                 @php
                     $totalProjects = \App\Models\Project::whereNotNull('experience_id')->count();
@@ -220,16 +220,16 @@
         <h2 class="text-4xl font-bold text-white mb-6">
             {{ __('message.interested_working_together') }}
         </h2>
-        <p class="text-xl text-purple-100 mb-8">
+        <p class="text-xl text-blue-100 mb-8">
             {{ __('message.discuss_experience_help') }}
         </p>
         <div class="flex flex-wrap justify-center gap-4">
             <a href="{{ route('portfolio.contact') }}" 
-               class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all">
+               class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all">
                 {{ __('message.contact_me') }}
             </a>
             <a href="{{ route('portfolio.projects') }}" 
-               class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-all">
+               class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-all">
                 {{ __('message.view_my_work') }}
             </a>
         </div>

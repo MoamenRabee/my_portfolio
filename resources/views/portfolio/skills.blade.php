@@ -10,7 +10,7 @@
                 <h1 class="text-5xl font-bold mb-6">
                     {{ __('message.my_skills') }}
                 </h1>
-                <p class="text-xl text-purple-100 max-w-2xl mx-auto">
+                <p class="text-xl text-blue-100 max-w-2xl mx-auto">
                     {{ __('message.skills_page_desc') }}
                 </p>
             </div>
@@ -35,7 +35,7 @@
                         <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg dark:shadow-gray-900/50 p-6 text-center card-hover"
                             data-aos="fade-up" data-aos-delay="{{ $loop->index * 50 }}">
                             <div
-                                class="w-16 h-16 bg-gradient-to-br from-purple-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <i class="fas fa-code text-2xl text-white"></i>
                             </div>
 
@@ -54,7 +54,7 @@
                                 <div class="space-y-2">
                                     @foreach($skill->projects->take(3) as $project)
                                         <a href="{{ route('portfolio.project', $project->id) }}"
-                                            class="block text-sm bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 px-3 py-2 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-900/50 transition-colors">
+                                            class="block text-sm bg-purple-50 dark:bg-purple-900/30 text-blue-600 dark:text-blue-400 px-3 py-2 rounded-lg hover:bg-blue-100 dark:hover:bg-purple-900/50 transition-colors">
                                             {{ app()->getLocale() == 'ar' ? $project->title_ar : $project->title_en }}
                                         </a>
                                     @endforeach
@@ -118,14 +118,14 @@
                             data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
                             <div class="flex items-center mb-4">
                                 <div
-                                    class="w-12 h-12 bg-gradient-to-br from-purple-400 to-blue-500 rounded-lg flex items-center justify-center {{ app()->getLocale() == 'ar' ? 'ml-4' : 'mr-4' }}">
+                                    class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-500 rounded-lg flex items-center justify-center {{ app()->getLocale() == 'ar' ? 'ml-4' : 'mr-4' }}">
                                     <i class="fas fa-star text-white text-xl"></i>
                                 </div>
                                 <div>
                                     <h3 class="text-xl font-bold text-gray-800 dark:text-white">
                                         {{ app()->getLocale() == 'ar' ? $skill->name_ar : $skill->name_en }}
                                     </h3>
-                                    <p class="text-purple-600 dark:text-purple-400 font-semibold">
+                                    <p class="text-blue-600 dark:text-blue-400 font-semibold">
                                         {{ $skill->projects->count() }} {{ app()->getLocale() == 'ar' ? 'مشاريع' : 'projects' }}
                                     </p>
                                 </div>
@@ -138,7 +138,7 @@
                                             {{ Str::limit(app()->getLocale() == 'ar' ? $project->title_ar : $project->title_en, 25) }}
                                         </span>
                                         <a href="{{ route('portfolio.project', $project->id) }}"
-                                            class="text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300 transition-colors">
+                                            class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-purple-300 transition-colors">
                                             <i class="fas fa-external-link-alt text-sm"></i>
                                         </a>
                                     </div>
@@ -215,8 +215,8 @@
                 <div class="text-center bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-xl p-8"
                     data-aos="fade-up" data-aos-delay="200">
                     <div
-                        class="w-16 h-16 bg-purple-100 dark:bg-purple-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-project-diagram text-2xl text-purple-600 dark:text-purple-400"></i>
+                        class="w-16 h-16 bg-blue-100 dark:bg-purple-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-project-diagram text-2xl text-blue-600 dark:text-blue-400"></i>
                     </div>
                     @php
                         $usedSkills = $skills->filter(function ($skill) {
@@ -251,16 +251,16 @@
             <h2 class="text-4xl font-bold text-white mb-6">
                 {{ __('message.interested_in_skills') }}
             </h2>
-            <p class="text-xl text-purple-100 mb-8">
+            <p class="text-xl text-blue-100 mb-8">
                 {{ __('message.skills_project_desc') }}
             </p>
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="{{ route('portfolio.projects') }}"
-                    class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
+                    class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
                     {{ __('message.view_my_work') }}
                 </a>
                 <a href="{{ route('portfolio.contact') }}"
-                    class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-all transform hover:scale-105">
+                    class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-all transform hover:scale-105">
                     {{ __('message.contact_me') }}
                 </a>
             </div>

@@ -10,24 +10,55 @@ class SkillSeeder extends Seeder
     public function run(): void
     {
         $skills = [
-            ['name_ar' => 'Laravel', 'name_en' => 'Laravel'],
-            ['name_ar' => 'PHP', 'name_en' => 'PHP'],
-            ['name_ar' => 'React.js', 'name_en' => 'React.js'],
-            ['name_ar' => 'Vue.js', 'name_en' => 'Vue.js'],
-            ['name_ar' => 'JavaScript', 'name_en' => 'JavaScript'],
-            ['name_ar' => 'TypeScript', 'name_en' => 'TypeScript'],
+            // Programming Language
+            ['name_ar' => 'Dart', 'name_en' => 'Dart'],
+
+            // Framework
+            ['name_ar' => 'Flutter', 'name_en' => 'Flutter'],
+
+            // State Management
+            ['name_ar' => 'Provider', 'name_en' => 'Provider'],
+            ['name_ar' => 'BLoC', 'name_en' => 'BLoC'],
+            ['name_ar' => 'GetX', 'name_en' => 'GetX'],
+
+            // Backend & Database
+            ['name_ar' => 'Firebase', 'name_en' => 'Firebase'],
             ['name_ar' => 'MySQL', 'name_en' => 'MySQL'],
-            ['name_ar' => 'HTML5', 'name_en' => 'HTML5'],
-            ['name_ar' => 'CSS3', 'name_en' => 'CSS3'],
-            ['name_ar' => 'Tailwind CSS', 'name_en' => 'Tailwind CSS'],
-            ['name_ar' => 'Bootstrap', 'name_en' => 'Bootstrap'],
-            ['name_ar' => 'Git', 'name_en' => 'Git'],
-            ['name_ar' => 'Docker', 'name_en' => 'Docker'],
-            ['name_ar' => 'AWS', 'name_en' => 'AWS'],
-            ['name_ar' => 'Node.js', 'name_en' => 'Node.js'],
-            ['name_ar' => 'Redis', 'name_en' => 'Redis'],
+            ['name_ar' => 'MongoDB', 'name_en' => 'MongoDB'],
+
+            // Development Tools
+            ['name_ar' => 'Android Studio', 'name_en' => 'Android Studio'],
+            ['name_ar' => 'Xcode', 'name_en' => 'Xcode'],
+            ['name_ar' => 'Visual Studio Code', 'name_en' => 'Visual Studio Code'],
+            ['name_ar' => 'Adobe XD', 'name_en' => 'Adobe XD'],
+            ['name_ar' => 'Figma', 'name_en' => 'Figma'],
+
+            // Operating Systems
+            ['name_ar' => 'macOS', 'name_en' => 'macOS'],
+            ['name_ar' => 'Windows', 'name_en' => 'Windows'],
+            ['name_ar' => 'Linux', 'name_en' => 'Linux'],
+
+            // APIs & Web Services
             ['name_ar' => 'REST APIs', 'name_en' => 'REST APIs'],
-            ['name_ar' => 'GraphQL', 'name_en' => 'GraphQL'],
+            ['name_ar' => 'Postman API', 'name_en' => 'Postman API'],
+            ['name_ar' => 'Socket.io', 'name_en' => 'Socket.io'],
+
+            // Concepts & Version Control
+            ['name_ar' => 'البرمجة الكائنية (OOP)', 'name_en' => 'Object-Oriented Programming (OOP)'],
+            ['name_ar' => 'Git', 'name_en' => 'Git'],
+            ['name_ar' => 'GitHub', 'name_en' => 'GitHub'],
+
+            // Mobile Platforms
+            ['name_ar' => 'Android', 'name_en' => 'Android'],
+            ['name_ar' => 'iOS', 'name_en' => 'iOS'],
+            ['name_ar' => 'تطوير متعدد المنصات', 'name_en' => 'Cross-Platform Development'],
+
+            // Additional Skills
+            ['name_ar' => 'البنية النظيفة', 'name_en' => 'Clean Architecture'],
+            ['name_ar' => 'نمط MVVM', 'name_en' => 'MVVM Pattern'],
+            ['name_ar' => 'إشعارات الدفع', 'name_en' => 'Push Notifications'],
+            ['name_ar' => 'تكامل الخرائط', 'name_en' => 'Maps Integration'],
+            ['name_ar' => 'بوابات الدفع', 'name_en' => 'Payment Gateways'],
         ];
 
         foreach ($skills as $skill) {

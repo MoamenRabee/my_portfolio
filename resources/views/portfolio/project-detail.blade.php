@@ -44,8 +44,8 @@
                             </div>
                         @endif
 
-                        <p class="text-xl text-purple-100 mb-8 leading-relaxed">
-                            {{ app()->getLocale() == 'ar' ? $project->description_ar : $project->description_en }}
+                        <p class="text-xl text-blue-100 mb-8 leading-relaxed">
+                            {!! app()->getLocale() == 'ar' ? $project->description_ar : $project->description_en !!}
                         </p>
 
                         <!-- Action Buttons -->
@@ -59,21 +59,21 @@
                             @endif
                             @if($project->github_link)
                                 <a href="{{ $project->github_link }}" target="_blank"
-                                    class="border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-all">
+                                    class="border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-all">
                                     <i class="fab fa-github {{ app()->getLocale() == 'ar' ? 'ml-2' : 'mr-2' }}"></i>
                                     {{ app()->getLocale() == 'ar' ? 'الكود المصدري' : 'Source Code' }}
                                 </a>
                             @endif
                             @if($project->google_play_link)
                                 <a href="{{ $project->google_play_link }}" target="_blank"
-                                    class="border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-all">
+                                    class="border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-all">
                                     <i class="fab fa-google-play {{ app()->getLocale() == 'ar' ? 'ml-2' : 'mr-2' }}"></i>
                                     {{ app()->getLocale() == 'ar' ? 'Google Play' : 'Google Play' }}
                                 </a>
                             @endif
                             @if($project->app_store_link)
                                 <a href="{{ $project->app_store_link }}" target="_blank"
-                                    class="border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-all">
+                                    class="border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-all">
                                     <i class="fab fa-app-store {{ app()->getLocale() == 'ar' ? 'ml-2' : 'mr-2' }}"></i>
                                     {{ app()->getLocale() == 'ar' ? 'App Store' : 'App Store' }}
                                 </a>
@@ -136,8 +136,8 @@
                 <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6" data-aos="fade-up" data-aos-delay="200">
                     @foreach($project->skills as $skill)
                         <div class="bg-white rounded-lg p-6 text-center shadow-lg card-hover">
-                            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <i class="fas fa-code text-purple-600 text-xl"></i>
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-code text-blue-600 text-xl"></i>
                             </div>
                             <h3 class="font-semibold text-gray-800">
                                 {{ app()->getLocale() == 'ar' ? $skill->name_ar : $skill->name_en }}
@@ -166,11 +166,11 @@
                                 {{ app()->getLocale() == 'ar' ? $project->experience->title_ar : $project->experience->title_en }}.
                             </p>
                             <p class="text-gray-700 leading-relaxed">
-                                {{ app()->getLocale() == 'ar' ? $project->experience->description_ar : $project->experience->description_en }}
+                                {!! app()->getLocale() == 'ar' ? $project->experience->description_ar : $project->experience->description_en !!}
                             </p>
                             <div class="mt-6">
                                 <a href="{{ route('portfolio.experiences') }}"
-                                    class="text-purple-600 hover:text-purple-800 font-semibold transition-colors">
+                                    class="text-blue-600 hover:text-blue-800 font-semibold transition-colors">
                                     {{ app()->getLocale() == 'ar' ? 'مشاهدة جميع خبراتي' : 'View All My Experience' }}
                                     <i
                                         class="fas fa-arrow-{{ app()->getLocale() == 'ar' ? 'left' : 'right' }} {{ app()->getLocale() == 'ar' ? 'mr-1' : 'ml-1' }}"></i>
@@ -184,8 +184,8 @@
                                     alt="{{ app()->getLocale() == 'ar' ? $project->experience->company_name_ar : $project->experience->company_name_en }}"
                                     class="w-32 h-32 rounded-xl object-cover mx-auto shadow-lg">
                             @else
-                                <div class="w-32 h-32 bg-purple-100 rounded-xl flex items-center justify-center mx-auto">
-                                    <i class="fas fa-building text-4xl text-purple-600"></i>
+                                <div class="w-32 h-32 bg-blue-100 rounded-xl flex items-center justify-center mx-auto">
+                                    <i class="fas fa-building text-4xl text-blue-600"></i>
                                 </div>
                             @endif
 
@@ -233,7 +233,7 @@
                                     alt="{{ app()->getLocale() == 'ar' ? $relatedProject->title_ar : $relatedProject->title_en }}"
                                     class="w-full h-48 object-cover">
                             @else
-                                <div class="w-full h-48 bg-gradient-to-br from-purple-400 to-blue-500 flex items-center justify-center">
+                                <div class="w-full h-48 bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center">
                                     <i class="fas fa-project-diagram text-3xl text-white"></i>
                                 </div>
                             @endif
@@ -243,10 +243,10 @@
                                     {{ app()->getLocale() == 'ar' ? $relatedProject->title_ar : $relatedProject->title_en }}
                                 </h3>
                                 <p class="text-gray-600 mb-4">
-                                    {{ Str::limit(app()->getLocale() == 'ar' ? $relatedProject->description_ar : $relatedProject->description_en, 100) }}
+                                    {!! Str::limit(app()->getLocale() == 'ar' ? $relatedProject->description_ar : $relatedProject->description_en, 100) !!}
                                 </p>
                                 <a href="{{ route('portfolio.project', $relatedProject->id) }}"
-                                    class="text-purple-600 hover:text-purple-800 font-semibold transition-colors">
+                                    class="text-blue-600 hover:text-blue-800 font-semibold transition-colors">
                                     {{ app()->getLocale() == 'ar' ? 'مشاهدة المشروع' : 'View Project' }}
                                     <i
                                         class="fas fa-arrow-{{ app()->getLocale() == 'ar' ? 'left' : 'right' }} {{ app()->getLocale() == 'ar' ? 'mr-1' : 'ml-1' }}"></i>
