@@ -47,6 +47,7 @@ return [
             'password' => env('MAIL_PASSWORD'),
             'timeout' => null,
             'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url((string) env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
+            'encryption' => 'tls', // Gmail requires TLS
         ],
 
         'ses' => [
@@ -114,5 +115,7 @@ return [
         'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
+
+    'admin_email' => env('MAIL_ADMIN_EMAIL', 'admin@admin.com'),
 
 ];

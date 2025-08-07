@@ -13,6 +13,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->web([
             \App\Http\Middleware\Lang::class,
+            \App\Http\Middleware\TrackVisits::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
