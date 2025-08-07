@@ -80,8 +80,10 @@
                         @endif
 
                         <p class="text-xl text-blue-100 mb-8 leading-relaxed">
-                            {{ app()->getLocale() == 'ar' ? $project->description_ar : $project->description_en }}
+                            {!! app()->getLocale() == 'ar' ? $project->description_ar : $project->description_en !!}
                         </p>
+
+                        &nbsp;
 
                         <!-- Action Buttons -->
                         <div class="flex flex-wrap gap-4">

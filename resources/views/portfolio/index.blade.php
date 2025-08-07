@@ -118,7 +118,7 @@
                                 {{ app()->getLocale() == 'ar' ? $project->title_ar : $project->title_en }}
                             </h3>
                             <p class="text-gray-600 dark:text-gray-300 mb-4">
-                                {{ Str::limit(app()->getLocale() == 'ar' ? $project->description_ar : $project->description_en, 100) }}
+                                {!! Str::limit(app()->getLocale() == 'ar' ? $project->description_ar : $project->description_en, 100) !!}
                             </p>
 
                             <div class="flex flex-wrap gap-2 mb-4">
@@ -221,8 +221,7 @@
                                         alt="{{ app()->getLocale() == 'ar' ? $experience->company_name_ar : $experience->company_name_en }}"
                                         class="w-12 h-12 rounded-lg object-cover">
                                 @else
-                                    <div
-                                        class="w-12 h-12 bg-blue-100 dark:bg-blue-900/50 rounded-lg flex items-center justify-center">
+                                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/50 rounded-lg flex items-center justify-center">
                                         <i class="fas fa-building text-blue-600 dark:text-blue-400"></i>
                                     </div>
                                 @endif
