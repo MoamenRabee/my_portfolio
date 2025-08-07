@@ -52,13 +52,16 @@ class ContactController extends Controller
             $contactMessage->ip_address = $request->ip();
             $contactMessage->save();
 
-            // Send email
+            // Email sending is temporarily disabled - messages are saved to database only
+            // Uncomment the lines below to enable email sending again
+            /*
             try {
                 Mail::to(config('mail.admin_email', 'admin@admin.com'))->send(new ContactMessageMail($contactMessage));
             } catch (\Exception $e) {
                 \Log::error('Failed to send contact email: ' . $e->getMessage());
                 // Don't fail the entire request if email fails
             }
+            */
 
             // Check if it's an AJAX request
             if ($request->ajax() || $request->wantsJson()) {
