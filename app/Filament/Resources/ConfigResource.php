@@ -72,10 +72,10 @@ class ConfigResource extends Resource
                                     ->label('Summary (English)')
                                     ->default(null),
                             ]),
-                        Forms\Components\RichEditor::make('about_me_ar')
+                        Forms\Components\Textarea::make('about_me_ar')
                             ->label('About Me (Arabic)')
                             ->columnSpanFull(),
-                        Forms\Components\RichEditor::make('about_me_en')
+                        Forms\Components\Textarea::make('about_me_en')
                             ->label('About Me (English)')
                             ->columnSpanFull(),
                     ]),
@@ -155,7 +155,7 @@ class ConfigResource extends Resource
                                     ->maxLength(255)
                                     ->default(null),
                             ]),
-                        Forms\Components\RichEditor::make('site_keywords')
+                        Forms\Components\Textarea::make('site_keywords')
                             ->label('Site Keywords')
                             ->columnSpanFull(),
                     ]),
