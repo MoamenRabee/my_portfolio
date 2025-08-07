@@ -8,6 +8,10 @@
     <title>@yield('title', ($config && $config->site_name) ? $config->site_name : 'Portfolio')</title>
     <meta name="description" content="{{ ($config && $config->site_description) ? $config->site_description : '' }}">
     <meta name="keywords" content="{{ ($config && $config->site_keywords) ? $config->site_keywords : '' }}">
+    @if($config && $config->logo)
+        <link rel="icon" type="image/x-icon" href="{{ asset('storage/' . $config->logo) }}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('storage/' . $config->logo) }}">
+    @endif
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
