@@ -17,7 +17,7 @@ class ContactController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'subject' => 'required|string|max:255',
-            'message' => 'required|string|min:10|max:5000',
+            'message' => 'required|string|min:5|max:5000',
             'phone' => 'nullable|string|max:20'
         ], [
             'name.required' => 'Name is required',
@@ -28,7 +28,7 @@ class ContactController extends Controller
             'subject.required' => 'Subject is required',
             'subject.max' => 'Subject must not exceed 255 characters',
             'message.required' => 'Message is required',
-            'message.min' => 'Message must be at least 10 characters',
+            'message.min' => 'Message must be at least 5 characters',
             'message.max' => 'Message must not exceed 5000 characters',
             'phone.max' => 'Phone number must not exceed 20 characters'
         ]);
@@ -43,14 +43,14 @@ class ContactController extends Controller
 
         try {
             // Create contact message
-            $contactMessage = ContactMessage::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'subject' => $request->subject,
-                'message' => $request->message,
-                'phone' => $request->phone,
-                'ip_address' => $request->ip()
-            ]);
+            $contactMessage = new ContactMessage();
+            $contactMessage->name = $request->name;
+            $contactMessage->email = $request->email;
+            $contactMessage->subject = $request->subject;
+            $contactMessage->message = $request->message;
+            $contactMessage->phone = $request->phone;
+            $contactMessage->ip_address = $request->ip();
+            $contactMessage->save();
 
             // Send email
             try {
@@ -60,18 +60,34 @@ class ContactController extends Controller
                 // Don't fail the entire request if email fails
             }
 
-            return response()->json([
-                'success' => true,
-                'message' => 'Your message has been sent successfully! We will reply to you as soon as possible.'
+            // Check if it's an AJAX request
+            if ($request->ajax() || $request->wantsJson()) {
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Your message has been sent successfully! We will reply to you as soon as possible.'
+                ]);
+            }
+
+            // Regular form submission - redirect to success page
+            return view('contact-success', [
+                'name' => $contactMessage->name,
+                'email' => $contactMessage->email,
+                'subject' => $contactMessage->subject
             ]);
 
         } catch (\Exception $e) {
             \Log::error('Contact form error: ' . $e->getMessage());
 
-            return response()->json([
-                'success' => false,
-                'message' => 'An error occurred while sending the message. Please try again.'
-            ], 500);
+            // Check if it's an AJAX request
+            if ($request->ajax() || $request->wantsJson()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'An error occurred while sending the message. Please try again.'
+                ], 500);
+            }
+
+            // Regular form submission - redirect back with error
+            return back()->withErrors(['error' => 'An error occurred while sending the message. Please try again.'])->withInput();
         }
     }
 }

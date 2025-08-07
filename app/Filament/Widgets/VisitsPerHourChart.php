@@ -29,7 +29,7 @@ class VisitsPerHourChart extends ChartWidget
         return [
             'datasets' => [
                 [
-                    'label' => 'الزيارات',
+                    'label' => 'Visits',
                     'data' => $data,
                     'backgroundColor' => 'rgba(34, 197, 94, 0.1)',
                     'borderColor' => 'rgb(34, 197, 94)',

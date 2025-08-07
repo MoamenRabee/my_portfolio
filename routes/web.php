@@ -25,3 +25,18 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 Route::get('/contact-form', function () {
     return view('contact-form-example-en');
 })->name('contact.form');
+
+// Contact Test Page
+Route::get('/contact-test', function () {
+    return view('contact-test');
+})->name('contact.test');
+
+// Contact Simple Form (shows success page)
+Route::get('/contact-simple', function () {
+    return view('contact-simple');
+})->name('contact.simple');
+
+// Contact Popup Form (multilingual with popups)
+Route::get('/contact-popup', function () {
+    return view('contact-popup');
+})->name('contact.popup');

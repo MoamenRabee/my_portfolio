@@ -31,7 +31,7 @@ class ContactMessageMail extends Mailable
     {
         return new Envelope(
             subject: 'New Message from Portfolio Website - ' . $this->contactMessage->subject,
-            replyTo: [$this->contactMessage->email => $this->contactMessage->name]
+            replyTo: $this->contactMessage->email
         );
     }
 
