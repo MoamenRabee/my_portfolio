@@ -49,7 +49,7 @@
                                 </div>
 
                                 <p class="text-gray-600 dark:text-gray-300 mb-4">
-                                    {{ Str::limit(app()->getLocale() == 'ar' ? $project->description_ar : $project->description_en, 120) }}
+                                    {!! Str::limit(app()->getLocale() == 'ar' ? $project->description_ar : $project->description_en, 120) !!}
                                 </p>
 
                                 <!-- Skills -->
