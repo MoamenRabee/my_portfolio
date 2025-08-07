@@ -9,6 +9,9 @@
     <title>@yield('title', ($config && $config->site_name) ? $config->site_name : 'Portfolio')</title>
     <meta name="description" content="{{ ($config && $config->site_description) ? $config->site_description : '' }}">
     <meta name="keywords" content="{{ ($config && $config->site_keywords) ? $config->site_keywords : '' }}">
+    <!-- Google Search Icon (favicon) -->
+    <link rel="icon" type="image/png" href="https://www.google.com/favicon.ico">
+
     @if($config && $config->logo)
         <link rel="icon" type="image/x-icon" href="{{ asset('storage/' . $config->logo) }}">
         <link rel="shortcut icon" type="image/x-icon" href="{{ asset('storage/' . $config->logo) }}">
