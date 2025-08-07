@@ -4,6 +4,7 @@ return [
     // Navigation
     'home' => 'Home',
     'about' => 'About',
+    'portfolio' => 'Portfolio',
     'projects' => 'Projects',
     'skills' => 'Skills',
     'experiences' => 'Experience',
@@ -168,4 +169,41 @@ return [
     'work_projects' => 'Work Projects',
     'interested_working_together' => 'Interested in Working Together?',
     'discuss_experience_help' => 'Let\'s discuss how my experience can help make your project a success',
+
+    // Education
+    'education' => 'Education',
+    'my_education' => 'My Education',
+    'education_page_desc' => 'My academic journey and the degrees I\'ve earned',
+    'degree' => 'Degree',
+    'institution' => 'Institution',
+    'gpa' => 'GPA',
+    'field_of_study' => 'Field of Study',
+    'no_education' => 'No Education Data',
+    'no_education_desc' => 'No education information has been added yet',
+
+    // Certifications
+    'certifications' => 'Certifications',
+    'my_certifications' => 'My Certifications',
+    'certifications_page_desc' => 'Professional certifications and credentials I\'ve earned',
+    'certification' => 'Certification',
+    'issuing_organization' => 'Issuing Organization',
+    'issued' => 'Issued',
+    'expires' => 'Expires',
+    'no_expiry' => 'No Expiry',
+    'credential_id' => 'Credential ID',
+    'view_credential' => 'View Credential',
+    'verify' => 'Verify',
+    'expired' => 'Expired',
+    'expires_soon' => 'Expires Soon',
+    'valid' => 'Valid',
+    'no_certifications' => 'No Certifications',
+    'no_certifications_desc' => 'No certifications have been added yet',
+    'total_certifications' => 'Total Certifications',
+    'valid_certifications' => 'Valid Certifications',
+    'organizations' => 'Organizations',
+    'months_since_latest' => 'Months Since Latest',
+
+    // CV Download
+    'download_cv_desc' => 'Get a complete PDF copy of my resume',
+    'download_pdf' => 'Download PDF',
 ];

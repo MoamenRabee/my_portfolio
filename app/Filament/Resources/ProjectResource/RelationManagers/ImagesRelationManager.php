@@ -21,8 +21,7 @@ class ImagesRelationManager extends RelationManager
                     ->image()
                     ->imageEditor()
                     ->imageResizeMode('cover')
-                    ->imageResizeTargetWidth('800')
-                    ->imageResizeTargetHeight('600')
+
                     ->directory('project-images')
                     ->visibility('public')
                     ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])

@@ -23,7 +23,7 @@
         @if($experiences->count() > 0)
             <div class="relative">
                 <!-- Timeline Line -->
-                <div class="absolute left-8 md:left-1/2 transform md:-translate-x-px h-full w-0.5 bg-purple-200 dark:bg-blue-800"></div>
+                <div class="absolute left-8 md:left-1/2 transform md:-translate-x-px h-full w-0.5 bg-blue-200 dark:bg-blue-800"></div>
                 
                 @foreach($experiences as $experience)
                     <div class="relative flex items-center mb-12 {{ $loop->index % 2 == 0 ? 'md:flex-row-reverse' : '' }}" data-aos="fade-up" data-aos-delay="{{ $loop->index * 200 }}">
@@ -40,7 +40,7 @@
                                              alt="{{ app()->getLocale() == 'ar' ? $experience->company_name_ar : $experience->company_name_en }}" 
                                              class="w-12 h-12 rounded-lg object-cover {{ app()->getLocale() == 'ar' ? 'ml-4' : 'mr-4' }}">
                                     @else
-                                        <div class="w-12 h-12 bg-blue-100 dark:bg-purple-900/50 rounded-lg flex items-center justify-center {{ app()->getLocale() == 'ar' ? 'ml-4' : 'mr-4' }}">
+                                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/50 rounded-lg flex items-center justify-center {{ app()->getLocale() == 'ar' ? 'ml-4' : 'mr-4' }}">
                                             <i class="fas fa-building text-blue-600 dark:text-blue-400"></i>
                                         </div>
                                     @endif
@@ -71,7 +71,7 @@
                                 
                                 <!-- Description -->
                                 <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                                    {!! app()->getLocale() == 'ar' ? $experience->description_ar : $experience->description_en !!}
+                                    {{ app()->getLocale() == 'ar' ? $experience->description_ar : $experience->description_en }}
                                 </p>
                                 
                                 <!-- Related Projects -->
@@ -86,7 +86,7 @@
                                         <div class="flex flex-wrap gap-2">
                                             @foreach($experienceProjects->take(3) as $project)
                                                 <a href="{{ route('portfolio.project', $project->id) }}" 
-                                                   class="text-sm bg-blue-100 dark:bg-purple-900/50 text-blue-600 dark:text-blue-400 px-3 py-1 rounded-full hover:bg-purple-200 dark:hover:bg-purple-900/70 transition-colors">
+                                                   class="text-sm bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 px-3 py-1 rounded-full hover:bg-blue-200 dark:hover:bg-blue-900/70 transition-colors">
                                                     {{ app()->getLocale() == 'ar' ? $project->title_ar : $project->title_en }}
                                                 </a>
                                             @endforeach
@@ -136,7 +136,7 @@
                     {{ __('message.about_professional_journey') }}
                 </h2>
                 <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-                    {!! app()->getLocale() == 'ar' ? $config->about_me_ar : $config->about_me_en !!}
+                    {{ app()->getLocale() == 'ar' ? $config->about_me_ar : $config->about_me_en }}
                 </p>
                 <a href="{{ route('portfolio.about') }}" 
                    class="bg-gradient-to-r from-blue-600 to-blue-600 hover:from-blue-700 hover:to-blue-700 text-white px-6 py-3 rounded-full font-semibold transition-all inline-block transform hover:scale-105 shadow-lg">
@@ -182,15 +182,15 @@
             </div>
             
             <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-                <div class="w-16 h-16 bg-green-100 dark:bg-green-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-building text-2xl text-green-600 dark:text-green-400"></i>
+                <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-building text-2xl text-blue-600 dark:text-blue-400"></i>
                 </div>
                 <h3 class="text-3xl font-bold text-gray-800 dark:text-white mb-2">{{ $experiences->count() }}</h3>
                 <p class="text-gray-600 dark:text-gray-300">{{ __('message.companies') }}</p>
             </div>
             
             <div class="text-center" data-aos="fade-up" data-aos-delay="300">
-                <div class="w-16 h-16 bg-blue-100 dark:bg-purple-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
                     <i class="fas fa-project-diagram text-2xl text-blue-600 dark:text-blue-400"></i>
                 </div>
                 @php

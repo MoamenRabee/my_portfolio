@@ -19,7 +19,24 @@ class ProjectResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-code-bracket';
 
-    protected static ?int $navigationSort = 4;
+    protected static ?string $navigationGroup = 'Portfolio Management';
+
+    protected static ?int $navigationSort = 3;
+
+    public static function getModelLabel(): string
+    {
+        return __('Project');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('Projects');
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return __('Projects');
+    }
 
 
     public static function form(Form $form): Form
@@ -129,7 +146,7 @@ class ProjectResource extends Resource
                     ->schema([
                         Forms\Components\Select::make('experience_id')
                             ->label('Related Experience')
-                            ->relationship('experience', 'title_en')
+                            ->relationship('experience', 'company_name_en')
                             ->searchable()
                             ->preload()
                             ->placeholder('Select related work experience (optional)')
@@ -149,7 +166,7 @@ class ProjectResource extends Resource
                     ->searchable()
                     ->sortable()
                     ->weight('bold'),
-                Tables\Columns\TextColumn::make('experience.title_en')
+                Tables\Columns\TextColumn::make('experience.company_name_en')
                     ->label('Related Experience')
                     ->searchable()
                     ->placeholder('No related experience')

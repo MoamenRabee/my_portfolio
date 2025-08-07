@@ -17,41 +17,58 @@ class ConfigResource extends Resource
 {
     protected static ?string $model = Config::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-cog';
+    protected static ?string $navigationIcon = 'heroicon-o-cog-6-tooth';
 
-    protected static ?int $navigationSort = 2;
+    protected static ?string $navigationGroup = 'Portfolio Management';
+
+    protected static ?int $navigationSort = 1;
+
+    public static function getModelLabel(): string
+    {
+        return __('Configuration');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('Configuration');
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return __('Configuration');
+    }
 
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\Section::make('Personal Information')
-                    ->description('Basic personal and professional details')
+                Forms\Components\Section::make(__('Personal Information'))
+                    ->description(__('Basic personal and professional details'))
                     ->icon('heroicon-o-user')
                     ->schema([
                         Forms\Components\Grid::make(2)
                             ->schema([
                                 Forms\Components\TextInput::make('name_ar')
-                                    ->label('Name (Arabic)')
+                                    ->label(__('Name (Arabic)'))
                                     ->required()
                                     ->maxLength(255),
                                 Forms\Components\TextInput::make('name_en')
-                                    ->label('Name (English)')
+                                    ->label(__('Name (English)'))
                                     ->required()
                                     ->maxLength(255),
                                 Forms\Components\TextInput::make('job_title_ar')
-                                    ->label('Job Title (Arabic)')
+                                    ->label(__('Job Title (Arabic)'))
                                     ->maxLength(255)
                                     ->default(null),
                                 Forms\Components\TextInput::make('job_title_en')
-                                    ->label('Job Title (English)')
+                                    ->label(__('Job Title (English)'))
                                     ->maxLength(255)
                                     ->default(null),
-                                Forms\Components\RichEditor::make('summary_ar')
+                                Forms\Components\Textarea::make('summary_ar')
                                     ->label('Summary (Arabic)')
                                     ->default(null),
-                                Forms\Components\RichEditor::make('summary_en')
+                                Forms\Components\Textarea::make('summary_en')
                                     ->label('Summary (English)')
                                     ->default(null),
                             ]),
@@ -122,15 +139,21 @@ class ConfigResource extends Resource
                         Forms\Components\Grid::make(2)
                             ->schema([
                                 Forms\Components\TextInput::make('site_name')
+                                    ->label(__('filament.Site Name'))
                                     ->maxLength(255)
                                     ->default(null),
                                 Forms\Components\TextInput::make('site_description')
+                                    ->label(__('filament.Site Description'))
                                     ->maxLength(255)
                                     ->default(null),
-                                Forms\Components\TextInput::make('copyright')
+                                Forms\Components\TextInput::make('copyright_ar')
+                                    ->label(__('filament.Copyright (Arabic)'))
                                     ->maxLength(255)
-                                    ->default(null)
-                                    ->columnSpanFull(),
+                                    ->default(null),
+                                Forms\Components\TextInput::make('copyright_en')
+                                    ->label(__('filament.Copyright (English)'))
+                                    ->maxLength(255)
+                                    ->default(null),
                             ]),
                         Forms\Components\RichEditor::make('site_keywords')
                             ->label('Site Keywords')
@@ -174,7 +197,6 @@ class ConfigResource extends Resource
                                     ->default(null)
                                     ->prefixIcon('heroicon-o-globe-alt'),
                                 Forms\Components\TextInput::make('whatsapp')
-                                    ->tel()
                                     ->maxLength(255)
                                     ->default(null)
                                     ->prefixIcon('heroicon-o-phone'),

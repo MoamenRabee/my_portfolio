@@ -41,7 +41,7 @@
                                 <div>
                                     <h3 class="font-semibold text-gray-800 dark:text-gray-200">{{ __('message.email') }}</h3>
                                     <a href="mailto:{{ $config->email }}"
-                                        class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-purple-300 transition-colors">
+                                        class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
                                         {{ $config->email }}
                                     </a>
                                 </div>
@@ -57,7 +57,7 @@
                                 <div>
                                     <h3 class="font-semibold text-gray-800 dark:text-gray-200">{{ __('message.phone') }}</h3>
                                     <a href="tel:{{ $config->phone }}"
-                                        class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-purple-300 transition-colors">
+                                        class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
                                         {{ $config->phone }}
                                     </a>
                                 </div>
@@ -73,7 +73,7 @@
                                 <div>
                                     <h3 class="font-semibold text-gray-800 dark:text-gray-200">{{ __('message.whatsapp') }}</h3>
                                     <a href="{{ $config->whatsapp }}" target="_blank"
-                                        class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-purple-300 transition-colors">
+                                        class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
                                         {{ __('message.send_whatsapp') }}
                                     </a>
                                 </div>
@@ -83,7 +83,7 @@
                         @if($config->address)
                             <div class="flex items-center group">
                                 <div
-                                    class="w-12 h-12 bg-blue-100 dark:bg-purple-900/50 rounded-lg flex items-center justify-center {{ app()->getLocale() == 'ar' ? 'ml-4' : 'mr-4' }} group-hover:bg-purple-200 dark:group-hover:bg-purple-900/70 transition-colors">
+                                    class="w-12 h-12 bg-blue-100 dark:bg-blue-900/50 rounded-lg flex items-center justify-center {{ app()->getLocale() == 'ar' ? 'ml-4' : 'mr-4' }} group-hover:bg-blue-200 dark:group-hover:bg-blue-900/70 transition-colors">
                                     <i class="fas fa-map-marker-alt text-blue-600 dark:text-blue-400"></i>
                                 </div>
                                 <div>
@@ -254,17 +254,17 @@
                             {{ __('message.call_desc') }}
                         </p>
                         <a href="tel:{{ $config->phone }}"
-                            class="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white px-6 py-2 rounded-full font-semibold transition-all inline-block">
+                            class="bg-gradient-to-r from-blue-600 to-blue-600 hover:from-blue-700 hover:to-blue-700 text-white px-6 py-2 rounded-full font-semibold transition-all inline-block">
                             {{ __('message.call_now') }}
                         </a>
                     </div>
                 @endif
 
                 @if($config->linkedin)
-                    <div class="text-center card-hover bg-purple-50 dark:bg-purple-900/20 rounded-xl p-8" data-aos="fade-up"
+                    <div class="text-center card-hover bg-blue-50 dark:bg-blue-900/20 rounded-xl p-8" data-aos="fade-up"
                         data-aos-delay="300">
                         <div
-                            class="w-16 h-16 bg-blue-100 dark:bg-purple-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
+                            class="w-16 h-16 bg-blue-100 dark:bg-blue-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fab fa-linkedin text-2xl text-blue-600 dark:text-blue-400"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">
@@ -274,7 +274,7 @@
                             {{ __('message.linkedin_desc') }}
                         </p>
                         <a href="{{ $config->linkedin }}" target="_blank"
-                            class="bg-gradient-to-r from-blue-600 to-pink-600 hover:from-blue-700 hover:to-pink-700 text-white px-6 py-2 rounded-full font-semibold transition-all inline-block">
+                            class="bg-gradient-to-r from-blue-600 to-blue-600 hover:from-blue-700 hover:to-blue-700 text-white px-6 py-2 rounded-full font-semibold transition-all inline-block">
                             {{ __('message.connect') }}
                         </a>
                     </div>

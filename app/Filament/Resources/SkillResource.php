@@ -19,26 +19,43 @@ class SkillResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-cpu-chip';
 
-    protected static ?int $navigationSort = 5;
+    protected static ?string $navigationGroup = 'Portfolio Management';
+
+    protected static ?int $navigationSort = 6;
+
+    public static function getModelLabel(): string
+    {
+        return __('Skill');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('Skills');
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return __('Skills');
+    }
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\Section::make('Skill Information')
-                    ->description('Programming languages, frameworks, and technical skills')
+                Forms\Components\Section::make(__('Skill Information'))
+                    ->description(__('Programming languages, frameworks, and technical skills'))
                     ->icon('heroicon-o-cpu-chip')
                     ->collapsible()
                     ->schema([
                         Forms\Components\Grid::make(2)
                             ->schema([
                                 Forms\Components\TextInput::make('name_ar')
-                                    ->label('Skill Name (Arabic)')
+                                    ->label(__('Skill Name (Arabic)'))
                                     ->required()
                                     ->maxLength(255)
                                     ->prefixIcon('heroicon-o-code-bracket'),
                                 Forms\Components\TextInput::make('name_en')
-                                    ->label('Skill Name (English)')
+                                    ->label(__('Skill Name (English)'))
                                     ->required()
                                     ->maxLength(255)
                                     ->prefixIcon('heroicon-o-code-bracket'),

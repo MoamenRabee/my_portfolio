@@ -11,12 +11,21 @@
                     <h1 class="text-5xl font-bold mb-6">
                         {{ __('message.about_me') }}
                     </h1>
-                    <h2 class="text-2xl mb-6 text-purple-200">
+                    <h2 class="text-2xl mb-6 text-blue-200">
                         {{ app()->getLocale() == 'ar' ? ($config->name_ar ?? '') : ($config->name_en ?? '') }}
                     </h2>
-                    <p class="text-xl text-blue-100 leading-relaxed">
+                    <p class="text-xl text-blue-100 leading-relaxed mb-8">
                         {{ app()->getLocale() == 'ar' ? ($config->job_title_ar ?? '') : ($config->job_title_en ?? '') }}
                     </p>
+                    
+                    <!-- CV Download Button -->
+                    <div class="flex {{ app()->getLocale() == 'ar' ? 'justify-end' : 'justify-start' }}">
+                        <a href="{{ route('portfolio.downloadCV') }}" target="_blank"
+                           class="inline-flex items-center bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                            <i class="fas fa-download {{ app()->getLocale() == 'ar' ? 'ml-2' : 'mr-2' }}"></i>
+                            {{ app()->getLocale() == 'ar' ? 'تحميل السيرة الذاتية' : 'Download CV' }}
+                        </a>
+                    </div>
                 </div>
 
                 <div class="text-center" data-aos="fade-left">
@@ -47,7 +56,7 @@
                     </h2>
 
                     <div class="prose prose-lg max-w-none text-gray-700 dark:text-gray-300 leading-relaxed">
-                        {!! nl2br(app()->getLocale() == 'ar' ? $config->about_me_ar : $config->about_me_en) !!}
+                        {!! nl2br(e(app()->getLocale() == 'ar' ? $config->about_me_ar : $config->about_me_en)) !!}
                     </div>
                 @else
                     <div class="text-center py-12">
@@ -91,7 +100,7 @@
 
                 <div class="text-center" data-aos="fade-up" data-aos-delay="200">
                     <div
-                        class="w-16 h-16 bg-blue-100 dark:bg-purple-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
+                        class="w-16 h-16 bg-blue-100 dark:bg-blue-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-project-diagram text-2xl text-blue-600 dark:text-blue-400"></i>
                     </div>
                     @php
@@ -148,7 +157,7 @@
                                 <div>
                                     <h3 class="font-semibold text-gray-800 dark:text-gray-200">{{ __('message.email') }}</h3>
                                     <a href="mailto:{{ $config->email }}"
-                                        class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-purple-300 transition-colors">
+                                        class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
                                         {{ $config->email }}
                                     </a>
                                 </div>
@@ -158,13 +167,13 @@
                         @if($config->phone)
                             <div class="flex items-center">
                                 <div
-                                    class="w-12 h-12 bg-green-100 dark:bg-green-900/50 rounded-lg flex items-center justify-center {{ app()->getLocale() == 'ar' ? 'ml-4' : 'mr-4' }}">
-                                    <i class="fas fa-phone text-green-600 dark:text-green-400"></i>
+                                    class="w-12 h-12 bg-blue-100 dark:bg-blue-900/50 rounded-lg flex items-center justify-center {{ app()->getLocale() == 'ar' ? 'ml-4' : 'mr-4' }}">
+                                    <i class="fas fa-phone text-blue-600 dark:text-blue-400"></i>
                                 </div>
                                 <div>
                                     <h3 class="font-semibold text-gray-800 dark:text-gray-200">{{ __('message.phone') }}</h3>
                                     <a href="tel:{{ $config->phone }}"
-                                        class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-purple-300 transition-colors">
+                                        class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
                                         {{ $config->phone }}
                                     </a>
                                 </div>
@@ -174,7 +183,7 @@
                         @if($config->address)
                             <div class="flex items-center">
                                 <div
-                                    class="w-12 h-12 bg-blue-100 dark:bg-purple-900/50 rounded-lg flex items-center justify-center {{ app()->getLocale() == 'ar' ? 'ml-4' : 'mr-4' }}">
+                                    class="w-12 h-12 bg-blue-100 dark:bg-blue-900/50 rounded-lg flex items-center justify-center {{ app()->getLocale() == 'ar' ? 'ml-4' : 'mr-4' }}">
                                     <i class="fas fa-map-marker-alt text-blue-600 dark:text-blue-400"></i>
                                 </div>
                                 <div>
@@ -233,7 +242,7 @@
                         @if($config->cv)
                             <div class="text-center mb-6">
                                 <div
-                                    class="w-16 h-16 bg-blue-100 dark:bg-purple-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    class="w-16 h-16 bg-blue-100 dark:bg-blue-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
                                     <i class="fas fa-file-pdf text-2xl text-blue-600 dark:text-blue-400"></i>
                                 </div>
                                 <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">
@@ -242,7 +251,7 @@
                                 <p class="text-gray-600 dark:text-gray-300 mb-4">
                                     {{ __('message.get_resume_copy') }}
                                 </p>
-                                <a href="{{ asset('storage/' . $config->cv) }}" target="_blank"
+                                <a href="{{ route('portfolio.downloadCV') }}"
                                     class="bg-gradient-to-r from-blue-600 to-blue-600 hover:from-blue-700 hover:to-blue-700 text-white px-6 py-3 rounded-full font-semibold transition-all inline-block transform hover:scale-105 shadow-lg">
                                     <i class="fas fa-download {{ app()->getLocale() == 'ar' ? 'ml-2' : 'mr-2' }}"></i>
                                     {{ __('message.download_cv') }}

@@ -4,6 +4,7 @@ return [
     // Navigation
     'home' => 'الرئيسية',
     'about' => 'نبذة عني',
+    'portfolio' => 'أعمالي',
     'projects' => 'المشاريع',
     'skills' => 'المهارات',
     'experiences' => 'الخبرات',
@@ -168,4 +169,41 @@ return [
     'work_projects' => 'مشاريع العمل',
     'interested_working_together' => 'مهتم بالعمل معي؟',
     'discuss_experience_help' => 'دعنا نناقش كيف يمكن لخبرتي أن تساعد في نجاح مشروعك',
+
+    // Education
+    'education' => 'التعليم',
+    'my_education' => 'تعليمي الأكاديمي',
+    'education_page_desc' => 'مسيرتي التعليمية والدرجات الأكاديمية التي حصلت عليها',
+    'degree' => 'الدرجة',
+    'institution' => 'المؤسسة التعليمية',
+    'gpa' => 'المعدل التراكمي',
+    'field_of_study' => 'مجال الدراسة',
+    'no_education' => 'لا توجد بيانات تعليمية',
+    'no_education_desc' => 'لم يتم إضافة أي معلومات تعليمية بعد',
+
+    // Certifications
+    'certifications' => 'الشهادات',
+    'my_certifications' => 'شهاداتي المهنية',
+    'certifications_page_desc' => 'الشهادات المهنية والاعتمادات التي حصلت عليها',
+    'certification' => 'شهادة',
+    'issuing_organization' => 'الجهة المانحة',
+    'issued' => 'صدرت في',
+    'expires' => 'تنتهي في',
+    'no_expiry' => 'لا تنتهي',
+    'credential_id' => 'رقم الاعتماد',
+    'view_credential' => 'عرض الشهادة',
+    'verify' => 'التحقق',
+    'expired' => 'منتهية الصلاحية',
+    'expires_soon' => 'تنتهي قريباً',
+    'valid' => 'سارية',
+    'no_certifications' => 'لا توجد شهادات',
+    'no_certifications_desc' => 'لم يتم إضافة أي شهادات بعد',
+    'total_certifications' => 'إجمالي الشهادات',
+    'valid_certifications' => 'شهادات سارية',
+    'organizations' => 'جهات',
+    'months_since_latest' => 'شهر منذ الأحدث',
+
+    // CV Download
+    'download_cv_desc' => 'احصل على نسخة PDF كاملة من سيرتي الذاتية',
+    'download_pdf' => 'تحميل PDF',
 ];

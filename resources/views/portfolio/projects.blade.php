@@ -26,7 +26,7 @@
                         <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden card-hover" data-aos="fade-up"
                             data-aos-delay="{{ $loop->index * 100 }}">
                             @if($project->images->first())
-                                <img src="{{ asset('storage/' . $project->images->first()->image_path) }}"
+                                <img src="{{ asset('storage/' . $project->images->first()->image) }}"
                                     alt="{{ app()->getLocale() == 'ar' ? $project->title_ar : $project->title_en }}"
                                     class="w-full h-48 object-cover">
                             @else
@@ -42,14 +42,14 @@
                                     </h3>
                                     @if($project->experience)
                                         <span
-                                            class="text-xs bg-blue-100 dark:bg-purple-900/50 text-blue-600 dark:text-blue-400 px-2 py-1 rounded-full">
+                                            class="text-xs bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 px-2 py-1 rounded-full">
                                             {{ app()->getLocale() == 'ar' ? $project->experience->company_name_ar : $project->experience->company_name_en }}
                                         </span>
                                     @endif
                                 </div>
 
                                 <p class="text-gray-600 dark:text-gray-300 mb-4">
-                                    {!! Str::limit(app()->getLocale() == 'ar' ? $project->description_ar : $project->description_en, 120) !!}
+                                    {{ Str::limit(app()->getLocale() == 'ar' ? $project->description_ar : $project->description_en, 120) }}
                                 </p>
 
                                 <!-- Skills -->
@@ -70,7 +70,7 @@
                                 <!-- Action Buttons -->
                                 <div class="flex justify-between items-center">
                                     <a href="{{ route('portfolio.project', $project->id) }}"
-                                        class="text-blue-600 dark:text-purple-300 hover:text-blue-800 dark:hover:text-blue-100 font-semibold transition-colors">
+                                        class="text-blue-600 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-100 font-semibold transition-colors">
                                         {{ __('message.view_details') }}
                                         <i
                                             class="fas fa-arrow-{{ app()->getLocale() == 'ar' ? 'left' : 'right' }} {{ app()->getLocale() == 'ar' ? 'mr-1' : 'ml-1' }}"></i>
@@ -165,23 +165,23 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             @foreach($projectGroup as $project)
                                 <div
-                                    class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-600 hover:border-purple-300 dark:hover:border-blue-500 transition-colors">
+                                    class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-600 hover:border-blue-300 dark:hover:border-blue-500 transition-colors">
                                     <h4 class="font-semibold text-gray-800 dark:text-white mb-2">
                                         {{ app()->getLocale() == 'ar' ? $project->title_ar : $project->title_en }}
                                     </h4>
                                     <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">
-                                        {!! Str::limit(app()->getLocale() == 'ar' ? $project->description_ar : $project->description_en, 80) !!}
+                                        {{ Str::limit(app()->getLocale() == 'ar' ? $project->description_ar : $project->description_en, 80) }}
                                     </p>
                                     <div class="flex flex-wrap gap-1 mb-3">
                                         @foreach($project->skills->take(3) as $skill)
                                             <span
-                                                class="text-xs bg-blue-100 dark:bg-purple-900/50 text-blue-600 dark:text-blue-400 px-2 py-1 rounded">
+                                                class="text-xs bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 px-2 py-1 rounded">
                                                 {{ app()->getLocale() == 'ar' ? $skill->name_ar : $skill->name_en }}
                                             </span>
                                         @endforeach
                                     </div>
                                     <a href="{{ route('portfolio.project', $project->id) }}"
-                                        class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-purple-300 text-sm font-medium transition-colors">
+                                        class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 text-sm font-medium transition-colors">
                                         {{ __('message.view_details') }}
                                         <i
                                             class="fas fa-arrow-{{ app()->getLocale() == 'ar' ? 'left' : 'right' }} {{ app()->getLocale() == 'ar' ? 'mr-1' : 'ml-1' }}"></i>

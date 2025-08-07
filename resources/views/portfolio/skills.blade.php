@@ -54,7 +54,7 @@
                                 <div class="space-y-2">
                                     @foreach($skill->projects->take(3) as $project)
                                         <a href="{{ route('portfolio.project', $project->id) }}"
-                                            class="block text-sm bg-purple-50 dark:bg-purple-900/30 text-blue-600 dark:text-blue-400 px-3 py-2 rounded-lg hover:bg-blue-100 dark:hover:bg-purple-900/50 transition-colors">
+                                            class="block text-sm bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-3 py-2 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors">
                                             {{ app()->getLocale() == 'ar' ? $project->title_ar : $project->title_en }}
                                         </a>
                                     @endforeach
@@ -114,7 +114,7 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     @foreach($popularSkills as $skill)
-                        <div class="bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-xl p-6"
+                        <div class="bg-gradient-to-br from-blue-50 to-blue-50 dark:from-blue-900/20 dark:to-blue-900/20 rounded-xl p-6"
                             data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
                             <div class="flex items-center mb-4">
                                 <div
@@ -138,7 +138,7 @@
                                             {{ Str::limit(app()->getLocale() == 'ar' ? $project->title_ar : $project->title_en, 25) }}
                                         </span>
                                         <a href="{{ route('portfolio.project', $project->id) }}"
-                                            class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-purple-300 transition-colors">
+                                            class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
                                             <i class="fas fa-external-link-alt text-sm"></i>
                                         </a>
                                     </div>
@@ -202,7 +202,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="text-center bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-xl p-8"
+                <div class="text-center bg-gradient-to-br from-blue-50 to-blue-50 dark:from-blue-900/20 dark:to-blue-900/20 rounded-xl p-8"
                     data-aos="fade-up" data-aos-delay="100">
                     <div
                         class="w-16 h-16 bg-blue-100 dark:bg-blue-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -212,10 +212,10 @@
                     <p class="text-gray-600 dark:text-gray-300">{{ __('message.total_skills') }}</p>
                 </div>
 
-                <div class="text-center bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-xl p-8"
+                <div class="text-center bg-gradient-to-br from-blue-50 to-white dark:from-blue-900/20 dark:to-gray-900/20 rounded-xl p-8"
                     data-aos="fade-up" data-aos-delay="200">
                     <div
-                        class="w-16 h-16 bg-blue-100 dark:bg-purple-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
+                        class="w-16 h-16 bg-blue-100 dark:bg-blue-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-project-diagram text-2xl text-blue-600 dark:text-blue-400"></i>
                     </div>
                     @php
@@ -227,11 +227,11 @@
                     <p class="text-gray-600 dark:text-gray-300">{{ __('message.used_in_projects') }}</p>
                 </div>
 
-                <div class="text-center bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-xl p-8"
+                <div class="text-center bg-gradient-to-br from-blue-50 to-blue-50 dark:from-blue-900/20 dark:to-blue-900/20 rounded-xl p-8"
                     data-aos="fade-up" data-aos-delay="300">
                     <div
-                        class="w-16 h-16 bg-green-100 dark:bg-green-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-chart-line text-2xl text-green-600 dark:text-green-400"></i>
+                        class="w-16 h-16 bg-blue-100 dark:bg-blue-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line text-2xl text-blue-600 dark:text-blue-400"></i>
                     </div>
                     @php
                         $avgProjectsPerSkill = $usedSkills > 0 ? round($skills->sum(function ($skill) {

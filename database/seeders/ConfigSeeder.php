@@ -24,13 +24,15 @@ class ConfigSeeder extends Seeder
             'site_name' => 'Moamen Rabee Portfolio',
             'site_description' => 'Portfolio احترافي لمطور Flutter متخصص في تطبيقات الجوال متعددة المنصات',
             'site_keywords' => 'flutter developer, mobile app developer, dart, android, ios, cross-platform, portfolio, moamen rabee',
-            'copyright' => '© ' . date('Y') . ' Moamen Rabee Mohamed. All rights reserved.',
+            'copyright_ar' => '© ' . date('Y') . ' Moamen Rabee Mohamed. All rights reserved.',
+            'copyright_en' => '© ' . date('Y') . ' Moamen Rabee Mohamed. All rights reserved.',
             'facebook' => '',
             'twitter' => '',
             'instagram' => '',
             'linkedin' => 'https://www.linkedin.com/in/moamen-rabee/',
             'github' => 'https://github.com/moamen-rabee',
             'whatsapp' => 'https://wa.me/201273308123',
+
         ]);
     }
 }

@@ -19,33 +19,49 @@ class ExperienceResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-briefcase';
 
+    protected static ?string $navigationGroup = 'Portfolio Management';
 
-    protected static ?int $navigationSort = 3;
+    protected static ?int $navigationSort = 2;
+
+    public static function getModelLabel(): string
+    {
+        return __('Experience');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('Experiences');
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return __('Experiences');
+    }
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\Section::make('Position Details')
-                    ->description('Job title and position information')
+                Forms\Components\Section::make(__('Position Details'))
+                    ->description(__('Job title and position information'))
                     ->icon('heroicon-o-briefcase')
                     ->schema([
                         Forms\Components\Grid::make(2)
                             ->schema([
                                 Forms\Components\TextInput::make('title_ar')
-                                    ->label('Job Title (Arabic)')
+                                    ->label(__('Job Title (Arabic)'))
                                     ->required()
                                     ->maxLength(255),
                                 Forms\Components\TextInput::make('title_en')
-                                    ->label('Job Title (English)')
+                                    ->label(__('Job Title (English)'))
                                     ->required()
                                     ->maxLength(255),
                             ]),
                         Forms\Components\RichEditor::make('description_ar')
-                            ->label('Job Description (Arabic)')
+                            ->label(__('Job Description (Arabic)'))
                             ->columnSpanFull(),
                         Forms\Components\RichEditor::make('description_en')
-                            ->label('Job Description (English)')
+                            ->label(__('Job Description (English)'))
                             ->columnSpanFull(),
                     ]),
 
