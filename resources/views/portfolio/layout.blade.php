@@ -9,8 +9,19 @@
     <title>@yield('title', ($config && $config->site_name) ? $config->site_name : 'Portfolio')</title>
     <meta name="description" content="{{ ($config && $config->site_description) ? $config->site_description : '' }}">
     <meta name="keywords" content="{{ ($config && $config->site_keywords) ? $config->site_keywords : '' }}">
-    <!-- Google Search Icon (favicon) -->
-    <link rel="icon" type="image/png" href="https://www.google.com/favicon.ico">
+
+
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{{ ($config && $config->site_name) ? $config->site_name : 'Portfolio' }}">
+    <meta property="og:description"
+        content="{{ ($config && $config->site_description) ? $config->site_description : '' }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    @if($config && $config->logo)
+        <meta property="og:image" content="{{ asset('storage/' . $config->logo) }}">
+    @endif
+
 
     @if($config && $config->logo)
         <link rel="icon" type="image/x-icon" href="{{ asset('storage/' . $config->logo) }}">
