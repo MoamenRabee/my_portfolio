@@ -52,7 +52,7 @@ return new class extends Migration {
         $indexes = collect(\DB::select("SHOW INDEX FROM {$table}"))
             ->where('Key_name', 'like', '%' . $column . '%')
             ->where('Non_unique', 0);
-        
+
         return $indexes->isNotEmpty();
     }
 
@@ -65,7 +65,7 @@ return new class extends Migration {
             if ($this->hasUniqueConstraint('projects', 'slug')) {
                 $table->dropUnique(['slug']);
             }
-            
+
             $columnsToRemove = [];
             if (Schema::hasColumn('projects', 'slug')) {
                 $columnsToRemove[] = 'slug';
@@ -82,7 +82,7 @@ return new class extends Migration {
             if (Schema::hasColumn('projects', 'meta_keywords_en')) {
                 $columnsToRemove[] = 'meta_keywords_en';
             }
-            
+
             if (!empty($columnsToRemove)) {
                 $table->dropColumn($columnsToRemove);
             }
