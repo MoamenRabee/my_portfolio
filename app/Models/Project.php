@@ -39,6 +39,13 @@ class Project extends Model
                 $project->slug = $project->generateSlug();
             }
         });
+
+        // Ensure slug is never empty on save
+        static::saving(function ($project) {
+            if (empty($project->slug)) {
+                $project->slug = $project->generateSlug();
+            }
+        });
     }
 
     public function generateSlug()

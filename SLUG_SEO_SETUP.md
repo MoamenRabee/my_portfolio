@@ -1,26 +1,28 @@
 # إعداد Project Slugs و SEO - مكتمل ✅
 
-## الخطوات المطلوبة:
+## الخطوات المطلوبة (محدثة):
 
 ### 1. تشغيل قاعدة البيانات
 تأكد من تشغيل XAMPP و MySQL قبل تنفيذ الخطوات التالية.
 
-### 2. تشغيل Migration
+### 2. تشغيل Migration (سريع ومبسط)
 ```bash
 php artisan migrate
 ```
+*هذا سيضيف الأعمدة الجديدة فقط - سريع جداً*
 
 ### 3. توليد Slugs للمشاريع الموجودة
 ```bash
 php artisan projects:generate-slugs
 ```
-أو استخدم الـ Seeder:
-```bash  
-php artisan db:seed --class=ProjectSlugSeeder
+
+### 4. إضافة Unique Constraint
+```bash
+php artisan projects:add-unique-constraint
 ```
 
-### 4. تحديث Filament Resource ✅
-تم تحديث ProjectResource ليتضمن الحقول الجديدة:
+### 5. تحديث Filament Resource ✅
+تم تحديث ProjectResource ليتضمن الحقول الجديدة.
 - `slug` مع إمكانية التوليد التلقائي
 - `meta_description_ar` و `meta_description_en` 
 - `meta_keywords_ar` و `meta_keywords_en`
@@ -79,7 +81,11 @@ php artisan db:seed --class=ProjectSlugSeeder
 - `/sitemap.xml` - خريطة موقع شاملة
 - `/sitemap-projects.xml` - خريطة موقع للمشاريع فقط
 
-## الملفات المُحدَّثة:
+### 7. Commands الجديدة:
+- `php artisan projects:generate-slugs` - توليد slugs للمشاريع الموجودة
+- `php artisan projects:add-unique-constraint` - إضافة unique constraint بأمان
+
+### 8. الملفات المُحدَّثة:
 
 1. **Models**: `Project.php` - إضافة slug و SEO methods
 2. **Migrations**: `add_slug_and_seo_to_projects_table.php`
