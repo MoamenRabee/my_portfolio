@@ -24,7 +24,7 @@ class SitemapController extends Controller
     {
         $projects = Project::select('slug', 'updated_at')->get();
 
-        $content = view('sitemap.projects', compact('projects'))->render();
+        $content = view('sitemap.sitemap', compact('projects'))->render();
 
         return response($content, 200)
             ->header('Content-Type', 'text/xml');
