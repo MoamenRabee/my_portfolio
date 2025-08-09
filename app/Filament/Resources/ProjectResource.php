@@ -61,6 +61,14 @@ class ProjectResource extends Resource
                                     ->maxLength(255)
                                     ->prefixIcon('heroicon-o-document-text'),
                             ]),
+                        Forms\Components\TextInput::make('slug')
+                            ->label('URL Slug')
+                            ->unique(Project::class, 'slug', ignoreRecord: true)
+                            ->maxLength(255)
+                            ->prefixIcon('heroicon-o-link')
+                            ->placeholder('auto-generated-if-empty')
+                            ->helperText('Leave empty to auto-generate from title')
+                            ->columnSpanFull(),
                         Forms\Components\RichEditor::make('description_ar')
                             ->label('Project Description (Arabic)')
                             ->toolbarButtons([
@@ -89,6 +97,38 @@ class ProjectResource extends Resource
                                 'undo',
                             ])
                             ->columnSpanFull(),
+                    ]),
+
+                Forms\Components\Section::make('SEO Settings')
+                    ->description('Search engine optimization settings')
+                    ->icon('heroicon-o-magnifying-glass')
+                    ->collapsible()
+                    ->schema([
+                        Forms\Components\Grid::make(1)
+                            ->schema([
+                                Forms\Components\Textarea::make('meta_description_ar')
+                                    ->label('Meta Description (Arabic)')
+                                    ->maxLength(160)
+                                    ->rows(3)
+                                    ->helperText('Recommended: 150-160 characters')
+                                    ->placeholder('Brief description for search engines in Arabic'),
+                                Forms\Components\Textarea::make('meta_description_en')
+                                    ->label('Meta Description (English)')
+                                    ->maxLength(160)
+                                    ->rows(3)
+                                    ->helperText('Recommended: 150-160 characters')
+                                    ->placeholder('Brief description for search engines in English'),
+                                Forms\Components\Textarea::make('meta_keywords_ar')
+                                    ->label('Meta Keywords (Arabic)')
+                                    ->rows(2)
+                                    ->helperText('Separate keywords with commas')
+                                    ->placeholder('keyword1, keyword2, keyword3'),
+                                Forms\Components\Textarea::make('meta_keywords_en')
+                                    ->label('Meta Keywords (English)')
+                                    ->rows(2)
+                                    ->helperText('Separate keywords with commas')
+                                    ->placeholder('keyword1, keyword2, keyword3'),
+                            ]),
                     ]),
 
                 Forms\Components\Section::make('Project Links')
@@ -166,6 +206,13 @@ class ProjectResource extends Resource
                     ->searchable()
                     ->sortable()
                     ->weight('bold'),
+                Tables\Columns\TextColumn::make('slug')
+                    ->label('URL Slug')
+                    ->searchable()
+                    ->copyable()
+                    ->copyMessage('Slug copied')
+                    ->color('gray')
+                    ->fontFamily('mono'),
                 Tables\Columns\TextColumn::make('experience.company_name_en')
                     ->label('Related Experience')
                     ->searchable()
@@ -178,6 +225,14 @@ class ProjectResource extends Resource
                     ->limitList(3)
                     ->listWithLineBreaks()
                     ->placeholder('No skills assigned'),
+                Tables\Columns\IconColumn::make('meta_description_en')
+                    ->label('SEO')
+                    ->icon('heroicon-o-magnifying-glass')
+                    ->color('warning')
+                    ->boolean()
+                    ->trueIcon('heroicon-o-check-circle')
+                    ->falseIcon('heroicon-o-x-circle')
+                    ->tooltip(fn($record) => $record->meta_description_en ? 'SEO configured' : 'SEO not configured'),
                 Tables\Columns\TextColumn::make('images_count')
                     ->label('Images')
                     ->counts('images')

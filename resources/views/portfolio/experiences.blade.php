@@ -85,7 +85,7 @@
                                         </h4>
                                         <div class="flex flex-wrap gap-2">
                                             @foreach($experienceProjects->take(3) as $project)
-                                                <a href="{{ route('portfolio.project', $project->id) }}" 
+                                                <a href="{{ route('portfolio.project', $project->slug) }}" 
                                                    class="text-sm bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 px-3 py-1 rounded-full hover:bg-blue-200 dark:hover:bg-blue-900/70 transition-colors">
                                                     {{ app()->getLocale() == 'ar' ? $project->title_ar : $project->title_en }}
                                                 </a>

@@ -1,6 +1,28 @@
 @extends('portfolio.layout')
 
-@section('title', (app()->getLocale() == 'ar' ? $project->title_ar : $project->title_en) . ' - ' . ($config->site_name ?? 'Portfolio'))
+@section('title', $project->getMetaTitle() . ' - ' . ($config->site_name ?? 'Portfolio'))
+
+@push('meta')
+<meta name="description" content="{{ $project->getMetaDescription() }}">
+<meta name="keywords" content="{{ $project->getMetaKeywords() }}">
+
+<!-- Open Graph Meta Tags -->
+<meta property="og:title" content="{{ $project->getMetaTitle() }}">
+<meta property="og:description" content="{{ $project->getMetaDescription() }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ route('portfolio.project', $project->slug) }}">
+@if($project->images->first())
+<meta property="og:image" content="{{ asset('storage/' . $project->images->first()->image_path) }}">
+@endif
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $project->getMetaTitle() }}">
+<meta name="twitter:description" content="{{ $project->getMetaDescription() }}">
+@if($project->images->first())
+<meta name="twitter:image" content="{{ asset('storage/' . $project->images->first()->image_path) }}">
+@endif
+@endpush
 
 @push('styles')
 <style>
@@ -292,7 +314,7 @@
                                 <p class="text-gray-600 dark:text-gray-300 mb-4">
                                     {{ Str::limit(app()->getLocale() == 'ar' ? $relatedProject->description_ar : $relatedProject->description_en, 100) }}
                                 </p>
-                                <a href="{{ route('portfolio.project', $relatedProject->id) }}"
+                                <a href="{{ route('portfolio.project', $relatedProject->slug) }}"
                                     class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold transition-colors">
                                     {{ app()->getLocale() == 'ar' ? 'مشاهدة المشروع' : 'View Project' }}
                                     <i

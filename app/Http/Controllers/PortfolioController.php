@@ -43,10 +43,10 @@ class PortfolioController extends Controller
         return view('portfolio.projects', compact('config', 'projects'));
     }
 
-    public function project($id)
+    public function project(Project $project)
     {
         $config = Config::first();
-        $project = Project::with(['skills', 'images', 'experience'])->findOrFail($id);
+        $project->load(['skills', 'images', 'experience']);
 
         return view('portfolio.project-detail', compact('config', 'project'));
     }

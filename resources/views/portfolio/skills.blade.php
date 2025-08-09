@@ -53,7 +53,7 @@
                                 <!-- Related Projects -->
                                 <div class="space-y-2">
                                     @foreach($skill->projects->take(3) as $project)
-                                        <a href="{{ route('portfolio.project', $project->id) }}"
+                                        <a href="{{ route('portfolio.project', $project->slug) }}"
                                             class="block text-sm bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-3 py-2 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors">
                                             {{ app()->getLocale() == 'ar' ? $project->title_ar : $project->title_en }}
                                         </a>
@@ -137,7 +137,7 @@
                                         <span class="text-gray-700 dark:text-gray-300 font-medium">
                                             {{ Str::limit(app()->getLocale() == 'ar' ? $project->title_ar : $project->title_en, 25) }}
                                         </span>
-                                        <a href="{{ route('portfolio.project', $project->id) }}"
+                                        <a href="{{ route('portfolio.project', $project->slug) }}"
                                             class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
                                             <i class="fas fa-external-link-alt text-sm"></i>
                                         </a>

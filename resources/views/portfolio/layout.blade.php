@@ -10,7 +10,7 @@
     <meta name="description" content="{{ ($config && $config->site_description) ? $config->site_description : '' }}">
     <meta name="keywords" content="{{ ($config && $config->site_keywords) ? $config->site_keywords : '' }}">
 
-
+    @stack('meta')
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="{{ ($config && $config->site_name) ? $config->site_name : 'Portfolio' }}">

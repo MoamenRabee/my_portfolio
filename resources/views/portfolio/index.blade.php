@@ -130,7 +130,7 @@
                             </div>
 
                             <div class="flex justify-between items-center">
-                                <a href="{{ route('portfolio.project', $project->id) }}"
+                                <a href="{{ route('portfolio.project', $project->slug) }}"
                                     class="text-blue-600 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-100 font-semibold transition-colors">
                                     {{ __('message.view_details') }}
                                     <i

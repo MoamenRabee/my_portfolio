@@ -3,13 +3,16 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\SitemapController;
 
 // Language Switch Route
 Route::get('/lang/{locale}', [PortfolioController::class, 'changeLanguage'])->name('lang.switch');
 
 Route::get('/', [PortfolioController::class, 'index'])->name('portfolio.index');
 Route::get('/projects', [PortfolioController::class, 'projects'])->name('portfolio.projects');
-Route::get('/project/{id}', [PortfolioController::class, 'project'])->name('portfolio.project');
+Route::get('/project/{project:slug}', [PortfolioController::class, 'project'])
+    ->middleware('project.slug')
+    ->name('portfolio.project');
 Route::get('/experiences', [PortfolioController::class, 'experiences'])->name('portfolio.experiences');
 Route::get('/skills', [PortfolioController::class, 'skills'])->name('portfolio.skills');
 Route::get('/education', [PortfolioController::class, 'education'])->name('portfolio.education');
@@ -40,3 +43,7 @@ Route::get('/contact-simple', function () {
 Route::get('/contact-popup', function () {
     return view('contact-popup');
 })->name('contact.popup');
+
+// Sitemap Routes
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap.index');
+Route::get('/sitemap-projects.xml', [SitemapController::class, 'projects'])->name('sitemap.projects');

@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Project;
+use App\Models\Config;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+
+class SitemapController extends Controller
+{
+    public function index()
+    {
+        $projects = Project::select('slug', 'updated_at')->get();
+        $config = Config::first();
+
+        $content = view('sitemap.sitemap', compact('projects', 'config'))->render();
+
+        return response($content, 200)
+            ->header('Content-Type', 'text/xml');
+    }
+
+    public function projects()
+    {
+        $projects = Project::select('slug', 'updated_at')->get();
+
+        $content = view('sitemap.projects', compact('projects'))->render();
+
+        return response($content, 200)
+            ->header('Content-Type', 'text/xml');
+    }
+}

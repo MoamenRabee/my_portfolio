@@ -15,6 +15,11 @@ return Application::configure(basePath: dirname(__DIR__))
             \App\Http\Middleware\Lang::class,
             \App\Http\Middleware\TrackVisits::class,
         ]);
+
+        // Register project slug middleware for the specific route
+        $middleware->alias([
+            'project.slug' => \App\Http\Middleware\ProjectSlugMiddleware::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
