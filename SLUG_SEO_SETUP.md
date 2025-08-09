@@ -1,27 +1,31 @@
 # إعداد Project Slugs و SEO - مكتمل ✅
 
-## الخطوات المطلوبة (محدثة):
+## الخطوات المطلوبة (محدثة - Migration واحد):
 
 ### 1. تشغيل قاعدة البيانات
 تأكد من تشغيل XAMPP و MySQL قبل تنفيذ الخطوات التالية.
 
-### 2. تشغيل Migration (سريع ومبسط)
+### 2. تشغيل Migration الكامل
 ```bash
 php artisan migrate
 ```
-*هذا سيضيف الأعمدة الجديدة فقط - سريع جداً*
+*Migration واحد يضيف الأعمدة ويضع unique constraint*
 
-### 3. توليد Slugs للمشاريع الموجودة
-```bash
-php artisan projects:generate-slugs
+### 3. تحديث البيانات يدوياً في phpMyAdmin
+1. افتح phpMyAdmin
+2. اختر قاعدة البيانات الخاصة بك
+3. افتح جدول `projects`
+4. استخدم الـ SQL التالي أو استخدم ملف `update_project_slugs.sql`:
+
+```sql
+-- تحديث slugs للمشاريع
+UPDATE projects SET slug = '4p-app' WHERE id = 1;
+UPDATE projects SET slug = 'portfolio-website' WHERE id = 2;
+UPDATE projects SET slug = 'e-commerce-platform' WHERE id = 3;
+-- ... إلخ
 ```
 
-### 4. إضافة Unique Constraint
-```bash
-php artisan projects:add-unique-constraint
-```
-
-### 5. تحديث Filament Resource ✅
+### 4. تحديث Filament Resource ✅
 تم تحديث ProjectResource ليتضمن الحقول الجديدة.
 - `slug` مع إمكانية التوليد التلقائي
 - `meta_description_ar` و `meta_description_en` 
