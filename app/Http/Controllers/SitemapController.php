@@ -16,21 +16,17 @@ class SitemapController extends Controller
 
         $content = view('sitemap.sitemap', compact('projects', 'config'))->render();
 
-        return response($content, 200, [
-            'Content-Type' => 'text/xml; charset=utf-8',
-            'Cache-Control' => 'public, max-age=3600'
-        ]);
+        return response($content, 200)
+            ->header('Content-Type', 'text/xml');
     }
 
     public function projects()
     {
-        $projects = Project::select('slug', 'updated_at', 'created_at')->get();
+        $projects = Project::select('slug', 'updated_at')->get();
 
         $content = view('sitemap.sitemap', compact('projects'))->render();
 
-        return response($content, 200, [
-            'Content-Type' => 'text/xml; charset=utf-8',
-            'Cache-Control' => 'public, max-age=3600'
-        ]);
+        return response($content, 200)
+            ->header('Content-Type', 'text/xml');
     }
 }

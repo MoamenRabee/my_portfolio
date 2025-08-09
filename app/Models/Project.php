@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Services\GoogleSearchConsoleService;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
@@ -29,31 +28,23 @@ class Project extends Model
     {
         parent::boot();
 
-        // Generate slug when creating
         static::creating(function ($project) {
             if (empty($project->slug)) {
-                $project->slug = $project->generateSlug($project->title);
+                $project->slug = $project->generateSlug();
             }
         });
 
-        // Regenerate slug when title changes
         static::updating(function ($project) {
-            if ($project->isDirty('title') && empty($project->slug)) {
-                $project->slug = $project->generateSlug($project->title);
+            if ($project->isDirty(['title_en', 'title_ar']) && empty($project->slug)) {
+                $project->slug = $project->generateSlug();
             }
         });
 
-        // Notify Google after creating, updating, or deleting projects
-        static::created(function ($project) {
-            \App\Services\GoogleSearchConsoleService::quickNotify();
-        });
-
-        static::updated(function ($project) {
-            \App\Services\GoogleSearchConsoleService::quickNotify();
-        });
-
-        static::deleted(function ($project) {
-            \App\Services\GoogleSearchConsoleService::quickNotify();
+        // Ensure slug is never empty on save
+        static::saving(function ($project) {
+            if (empty($project->slug)) {
+                $project->slug = $project->generateSlug();
+            }
         });
     }
 
