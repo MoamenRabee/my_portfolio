@@ -44,3 +44,6 @@ Route::get('/contact-popup', function () {
     return view('contact-popup');
 })->name('contact.popup');
 
+// Dynamic Sitemap Generation
+Route::get('/sitemap', [SitemapController::class, 'index'])->name('sitemap.index');
+
