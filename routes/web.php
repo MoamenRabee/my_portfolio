@@ -44,6 +44,3 @@ Route::get('/contact-popup', function () {
     return view('contact-popup');
 })->name('contact.popup');
 
-// Sitemap Routes
-Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap.index');
-Route::get('/sitemap-projects.xml', [SitemapController::class, 'projects'])->name('sitemap.projects');
